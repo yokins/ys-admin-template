@@ -1,11 +1,13 @@
 import Koa from "koa";
 import os from "os";
+import router from "./router/index.js";
+import bodyParser from "koa-bodyparser";
 
 const app = new Koa();
 
-app.use(async (ctx) => {
-    ctx.body = "Hello World";
-});
+app.use(bodyParser());
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 const DEFAULT_PORT = 3000;
 let port = process.env.PORT || DEFAULT_PORT;
