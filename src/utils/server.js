@@ -2,9 +2,10 @@
  * @Author: Yokin shi
  * @Date: 2025-01-22 12:02:38
  * @LastEditors: Yokin shi
- * @LastEditTime: 2025-01-22 12:09:21
+ * @LastEditTime: 2025-01-22 13:28:38
  * @Description: 请输入文件描述
  */
+
 import { useGlobalStore } from "@/stores/global";
 import axios from "axios";
 
@@ -55,4 +56,10 @@ const createRequest = ({ baseURL = "", timeout = 10000, headers = {} } = options
             return Promise.reject(error);
         }
     );
+};
+
+export default {
+    base: createRequest({
+        baseURL: import.meta.env.VITE_API_URL
+    })
 };

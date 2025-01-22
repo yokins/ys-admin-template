@@ -1,11 +1,24 @@
+<!--
+ * @Author: Yokin shi
+ * @Date: 2025-01-22 10:28:36
+ * @LastEditors: Yokin shi
+ * @LastEditTime: 2025-01-22 13:33:46
+ * @Description: 请输入文件描述
+-->
 <template>
     <n-config-provider
         :locale="naiveI18n.lang"
         :date-locale="naiveI18n.dateLang"
     >
-        <n-message-provider>
-            <router-view></router-view>
-        </n-message-provider>
+        <n-modal-provider>
+            <n-dialog-provider>
+                <n-notification-provider>
+                    <n-message-provider>
+                        <router-view></router-view>
+                    </n-message-provider>
+                </n-notification-provider>
+            </n-dialog-provider>
+        </n-modal-provider>
     </n-config-provider>
 </template>
 
