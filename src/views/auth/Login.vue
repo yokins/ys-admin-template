@@ -15,15 +15,15 @@
             <div class="login-header">
                 <div class="logo-container">
                     <div class="logo-circle">
-                        <n-icon
-                            size="32"
-                            color="#2d8cf0"
-                        >
-                            <logo-github />
-                        </n-icon>
+                        <img
+                            :src="LogoPng"
+                            alt="Logo"
+                            width="32"
+                            height="32"
+                        />
                     </div>
                 </div>
-                <h2 class="login-title">欢迎回来</h2>
+                <h2 class="login-title">欢迎回到YS后台模板</h2>
                 <p class="login-subtitle">请登录您的账号</p>
             </div>
 
@@ -41,7 +41,7 @@
                         class="login-input"
                     >
                         <template #prefix>
-                            <n-icon :component="PersonOutline" />
+                            <n-icon :component="User" />
                         </template>
                     </n-input>
                 </n-form-item>
@@ -55,7 +55,7 @@
                         @keydown.enter="handleLogin"
                     >
                         <template #prefix>
-                            <n-icon :component="LockClosedOutline" />
+                            <n-icon :component="Password" />
                         </template>
                     </n-input>
                 </n-form-item>
@@ -88,15 +88,16 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, shallowRef } from "vue";
 import { useRouter } from "vue-router";
 import { useMessage } from "naive-ui";
-import { PersonOutline, LockClosedOutline, LogoGithub } from "@vicons/ionicons5";
+import { User, Password } from "@vicons/carbon";
+import LogoPng from "@/assets/logo.png";
 
 const router = useRouter();
 const message = useMessage();
 
-const formRef = ref(null);
+const formRef = shallowRef(null);
 const loading = ref(false);
 const rememberMe = ref(false);
 
@@ -149,6 +150,7 @@ const handleLogin = (e) => {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    will-change: transform;
     animation: cube-animation 10s linear infinite;
 }
 
@@ -198,25 +200,21 @@ const handleLogin = (e) => {
 }
 
 @keyframes cube-animation {
-    0% {
-        transform: rotate(0deg) translate(0, 0) scale(1);
+    0%,
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         opacity: 0.8;
     }
     33% {
-        transform: rotate(120deg) translate(50px, 50px) scale(1.2);
+        transform: rotate(120deg) translate3d(50px, 50px, 0) scale(1.2);
         border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
         opacity: 0.6;
     }
     66% {
-        transform: rotate(240deg) translate(-50px, 50px) scale(0.8);
-        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        transform: rotate(240deg) translate3d(-50px, 50px, 0) scale(0.8);
+        border-radius: 50%;
         opacity: 0.9;
-    }
-    100% {
-        transform: rotate(360deg) translate(0, 0) scale(1);
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        opacity: 0.8;
     }
 }
 
@@ -230,9 +228,8 @@ const handleLogin = (e) => {
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 1;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .login-card:hover {
@@ -249,7 +246,8 @@ const handleLogin = (e) => {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    transition: all 0.5s ease;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-circle:hover {
@@ -264,7 +262,8 @@ const handleLogin = (e) => {
     font-size: 16px;
     font-weight: 600;
     border-radius: 22px;
-    transition: all 0.3s ease;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .login-button:hover {
@@ -277,10 +276,15 @@ const handleLogin = (e) => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
 }
+
 .login-input :deep(.n-input) {
     border-radius: 20px;
-    transition: all 0.3s ease;
+    will-change: transform;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     overflow: hidden;
 }
@@ -294,6 +298,6 @@ const handleLogin = (e) => {
 
 .login-input :deep(.n-input-wrapper) {
     padding: 4px 12px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>

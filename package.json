@@ -15,7 +15,7 @@
         "format": "prettier --write src/"
     },
     "dependencies": {
-        "@vicons/ionicons5": "^0.13.0",
+        "axios": "^1.7.9",
         "naive-ui": "^2.40.4",
         "normalize.css": "^8.0.1",
         "pinia": "^2.3.0",
