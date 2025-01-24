@@ -1,8 +1,8 @@
 <!--
  * @Author: Yokin shi
  * @Date: 2025-01-22 10:28:36
- * @LastEditors: Yokin shi
- * @LastEditTime: 2025-01-22 13:33:46
+ * @LastEditors: yokins yokins.shi@icloud.com
+ * @LastEditTime: 2025-01-24 10:09:58
  * @Description: 请输入文件描述
 -->
 <template>
@@ -14,7 +14,9 @@
             <n-dialog-provider>
                 <n-notification-provider>
                     <n-message-provider>
-                        <router-view></router-view>
+                        <component :is="currentLayout">
+                            <router-view></router-view>
+                        </component>
                     </n-message-provider>
                 </n-notification-provider>
             </n-dialog-provider>
@@ -26,6 +28,9 @@
 import i18n from "@/i18n";
 import { useConfigStore } from "@/stores/config";
 import { dateZhCN, zhCN, enUS, dateEnUS } from "naive-ui";
+import layouts from "@/layouts";
+
+const route = useRoute();
 
 const configStore = useConfigStore();
 if (configStore.lang != i18n.global.locale) configStore.setLang(i18n.global.locale);
@@ -45,4 +50,9 @@ const themeOverrides = {
         primaryColor: "#2d8cf0"
     }
 };
+
+const currentLayout = computed(() => {
+    const layoutName = route?.meta?.layout;
+    return layouts[layoutName] || layouts.default;
+});
 </script>

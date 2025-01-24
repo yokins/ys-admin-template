@@ -1,20 +1,19 @@
 <template>
-    <AdminLayout>
+    <AdminTemplate>
         <template #header>
             <HeadBar></HeadBar>
         </template>
-        <router-view></router-view>
-
+        <slot></slot>
         <template #footer>
             <n-text depth="3">
                 {{ configStore.layout.footer.text }}
             </n-text>
         </template>
-    </AdminLayout>
+    </AdminTemplate>
 </template>
 
 <script lang="jsx" setup>
-import AdminLayout from "@/components/layouts/AdminLayout.vue";
+import AdminTemplate from "@/layouts/components/Admin.vue";
 import HeadBar from "@/layouts/components/HeadBar.vue";
 import { useConfigStore } from "@/stores/config";
 
