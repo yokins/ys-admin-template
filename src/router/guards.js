@@ -15,7 +15,7 @@ export default {
             NProgress.start();
         },
         /**
-         * @description: 检查是否需要登录
+         * @description: 检查是否需要登录, 登录页固定，首页再议
          * @return {*}
          */
         checkLogin(to, from, next) {
@@ -23,7 +23,7 @@ export default {
 
             if (globalStore.currentUser) {
                 if (to.name == "root" || to.name == "auth_login") {
-                    next({ name: "auth_login" });
+                    next({ name: "root" });
                 } else {
                     next();
                 }

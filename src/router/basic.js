@@ -19,7 +19,9 @@ export const defaultMeta = {
     // 页面的母版
     layout: "default",
     // 页面的类型
-    routeType: "PAGE"
+    routeType: "PAGE",
+    // 是否是主页
+    isRoot: false
 };
 
 export const basicRoutes = [
