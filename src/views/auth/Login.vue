@@ -60,18 +60,20 @@
                     </n-input>
                 </n-form-item>
 
-                <div class="flex justify-between mb-4">
-                    <n-checkbox v-model:checked="rememberMe">
-                        <span class="text-sm">记住我</span>
-                    </n-checkbox>
-                    <n-button
-                        text
-                        type="primary"
-                        class="forgot-password"
-                    >
-                        忘记密码？
-                    </n-button>
-                </div>
+                <n-form-item :show-feedback="false">
+                    <div class="flex justify-between mb-4">
+                        <n-checkbox v-model:checked="rememberMe">
+                            <span class="text-sm">记住我</span>
+                        </n-checkbox>
+                        <n-button
+                            text
+                            type="primary"
+                            class="forgot-password"
+                        >
+                            忘记密码？
+                        </n-button>
+                    </div>
+                </n-form-item>
 
                 <n-button
                     type="primary"
