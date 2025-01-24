@@ -21,3 +21,30 @@ export const defaultMeta = {
     // 页面的类型
     routeType: "PAGE"
 };
+
+export const basicRoutes = [
+    {
+        path: "/auth/login",
+        name: "auth_login",
+        meta: {
+            ...defaultMeta,
+            layout: "default",
+            skipAuth: true
+        },
+        component: () => import("@/views/auth/Login.vue")
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        name: "error",
+        component: () => import("@/views/error/Index.vue"),
+        meta: {
+            ...defaultMeta,
+            layout: "default",
+            skipAuth: true
+        }
+    }
+];
+
+export const genRoutes = (insertRoutes = []) => {
+    return [...insertRoutes, ...basicRoutes];
+};

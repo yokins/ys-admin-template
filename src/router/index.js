@@ -1,28 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-const Admin = () => import("@/layouts/AdminLayout.vue");
+import NormalMode from "./modes/normal";
+import { genRoutes } from "./basic";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-        {
-            path: "/",
-            name: "root",
-            component: Admin,
-            children: [
-                {
-                    path: "",
-                    name: "home",
-                    component: () => import("@/views/home/Index.vue")
-                }
-            ]
-        },
-        {
-            path: "/auth/login",
-            name: "Login",
-            component: () => import("@/views/auth/Login.vue")
-        }
-    ]
+    routes: genRoutes(NormalMode)
 });
 
 export default router;
