@@ -8,6 +8,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import legacy from "@vitejs/plugin-legacy";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+import { viteMockServe } from "vite-plugin-mock";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -18,6 +19,13 @@ export default defineConfig({
         vue(),
         vueJsx(),
         vueDevTools(),
+        viteMockServe({
+            mockPath: "mock",
+            localEnabled: true,
+            prodEnabled: false,
+            injectCode: true,
+            logger: true
+        }),
         AutoImport({
             imports: [
                 "vue",
