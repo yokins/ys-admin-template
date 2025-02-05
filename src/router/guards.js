@@ -19,7 +19,6 @@ export default {
          * @return {*}
          */
         checkLogin(to, from, next) {
-            console.log("🚀 ~ checkLogin ~ to, from:", to, from);
             const globalStore = useGlobalStore();
 
             if (globalStore.currentUser) {

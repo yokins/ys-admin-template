@@ -9,19 +9,27 @@ export default [
         ...routeMap.home,
         meta: {
             ...defaultMeta,
-            layout: "AdminLayout"
+            layout: "AdminLayout",
+            isMenu: true,
+            zIndex: 1000000,
+            title: "主页"
         }
     },
     {
         path: "/users",
+        name: "users",
         ...routeMap.users,
         meta: {
             ...defaultMeta,
-            layout: "AdminLayout"
+            layout: "AdminLayout",
+            isMenu: true,
+            zIndex: 900000,
+            title: "用户管理"
         }
     },
     {
         path: "/users/:id",
+        name: "users_detail",
         ...routeMap.users_detail,
         meta: {
             ...defaultMeta,
@@ -31,10 +39,13 @@ export default [
     {
         path: "/roles",
         name: "roles",
-        ...routeMap.home,
+        ...routeMap.roles,
         meta: {
             ...defaultMeta,
-            layout: "AdminLayout"
+            layout: "AdminLayout",
+            isMenu: true,
+            zIndex: 700000,
+            title: "角色管理"
         }
     }
 ];

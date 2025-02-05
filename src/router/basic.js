@@ -1,3 +1,5 @@
+import { RouterLink } from "vue-router";
+
 const routeType = {
     NODE: Symbol("节点"),
     PAGE: Symbol("页面")
@@ -21,7 +23,10 @@ export const defaultMeta = {
     // 页面的类型
     routeType: "PAGE",
     // 是否是主页
-    isRoot: false
+    isRoot: false,
+    // 这两个参数为了生成菜单
+    zIndex: 0,
+    isMenu: false
 };
 
 export const basicRoutes = [
@@ -47,6 +52,49 @@ export const basicRoutes = [
     }
 ];
 
+/**
+ * @description: 生成路由-拼接固定的路由以及动态添加的路由
+ * @param {*} insertRoutes
+ * @return {*}
+ */
 export const genRoutes = (insertRoutes = []) => {
     return [...insertRoutes, ...basicRoutes];
+};
+
+export const genMenu = (route) => {
+    return {
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        name: route.name
+                    }
+                },
+                { default: () => route.meta?.title }
+            ),
+        key: route.name
+    };
+};
+
+/**
+ * @description: 获取菜单路由
+ * @param {*} routes
+ * @return {*}
+ */
+export const getMenus = (routes = []) => {
+    const list = routes.filter((route) => route.meta?.isMenu);
+    list.sort((a, b) => {
+        if (a.meta?.zIndex < b.meta?.zIndex) return 1;
+        if (a.meta?.zIndex > b.meta?.zIndex) return -1;
+        return 0;
+    });
+    const menus = list.map((route) => {
+        const menu = genMenu(route);
+        if (route.children?.length > 0) {
+            menu.children = getMenuRoutes(route.children);
+        }
+        return menu;
+    });
+    return menus;
 };

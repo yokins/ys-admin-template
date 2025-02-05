@@ -1,5 +1,5 @@
 <template>
-    <div>xxxx</div>
+    <div>root</div>
     <n-date-picker
         v-model:value="timestamp"
         type="date"
