@@ -1,9 +1,12 @@
 <template>
-    <div>xxxx</div>
-    <n-date-picker
-        v-model:value="timestamp"
-        type="date"
-    />
+    <div>
+        xxxx
+
+        <n-date-picker
+            v-model:value="timestamp"
+            type="date"
+        />
+    </div>
 </template>
 
 <script lang="jsx" setup>

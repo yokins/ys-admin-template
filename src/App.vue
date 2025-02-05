@@ -2,7 +2,7 @@
  * @Author: Yokin shi
  * @Date: 2025-01-22 10:28:36
  * @LastEditors: yokins yokins.shi@icloud.com
- * @LastEditTime: 2025-02-05 17:39:58
+ * @LastEditTime: 2025-02-05 17:52:13
  * @Description: 请输入文件描述
 -->
 <template>
@@ -15,7 +15,14 @@
                 <n-notification-provider>
                     <n-message-provider>
                         <component :is="currentLayout">
-                            <router-view></router-view>
+                            <router-view v-slot="{ Component }">
+                                <transition
+                                    name="fade-slide"
+                                    mode="out-in"
+                                >
+                                    <component :is="Component" />
+                                </transition>
+                            </router-view>
                         </component>
                     </n-message-provider>
                 </n-notification-provider>
@@ -58,3 +65,20 @@ const currentLayout = computed(() => {
     return layouts[layoutName] || layouts.default;
 });
 </script>
+
+<style lang="scss" scoped>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+    transition: all 0.3s ease;
+}
+
+.fade-slide-enter-from {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.fade-slide-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+</style>

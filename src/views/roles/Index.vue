@@ -1,9 +1,12 @@
 <template>
-    <div>roles</div>
-    <n-date-picker
-        v-model:value="timestamp"
-        type="date"
-    />
+    <div>
+        roles
+
+        <n-date-picker
+            v-model:value="timestamp"
+            type="date"
+        />
+    </div>
 </template>
 
 <script lang="jsx" setup>
