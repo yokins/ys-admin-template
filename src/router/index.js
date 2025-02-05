@@ -3,9 +3,11 @@ import NormalMode from "./modes/normal";
 import { genRoutes } from "./basic";
 import guards from "./guards";
 
+const routes = genRoutes(NormalMode);
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    routes: genRoutes(NormalMode)
+    routes: routes
 });
 
 Object.keys(guards.before).forEach((key) => {

@@ -10,6 +10,10 @@ export const useGlobalStore = defineStore("global", {
         };
     },
     getters: {},
-    actions: {},
+    actions: {
+        setCurrentUser(user = null) {
+            this.currentUser = user;
+        }
+    },
     persist: true
 });

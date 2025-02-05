@@ -2,7 +2,7 @@
  * @Author: Yokin shi
  * @Date: 2025-01-22 10:28:36
  * @LastEditors: yokins yokins.shi@icloud.com
- * @LastEditTime: 2025-02-05 10:21:51
+ * @LastEditTime: 2025-02-05 17:04:15
  * @Description: 请输入文件描述
 -->
 <template>
@@ -29,6 +29,9 @@ import i18n from "@/i18n";
 import { useConfigStore } from "@/stores/config";
 import { dateZhCN, zhCN, enUS, dateEnUS } from "naive-ui";
 import layouts from "@/layouts";
+
+const router = useRouter();
+console.log("🚀 ~ router:", router);
 
 const route = useRoute();
 
