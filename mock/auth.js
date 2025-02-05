@@ -1,8 +1,9 @@
 export default [
     {
-        url: "/api/auth/login",
+        url: "/api/v1/auth/login",
         method: "post",
         response: ({ body }) => {
+            console.log("🚀 ~ body:", body);
             const { username, password } = body;
 
             // 模拟用户验证

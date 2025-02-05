@@ -123,11 +123,12 @@ const handleLogin = (e) => {
             loading.value = true;
             try {
                 // 这里添加您的登录逻辑
-                await new Promise((resolve) => setTimeout(resolve, 1000)); // 模拟登录请求
-                message.success("登录成功");
-                router.push("/");
-            } catch (error) {
-                message.error("登录失败：" + error.message);
+                const res = await window.$ys.apis.auth.login(formValue.value);
+                console.log("🚀 ~ formRef.value?.validate ~ res:", res);
+
+                // await new Promise((resolve) => setTimeout(resolve, 1000)); // 模拟登录请求
+                // message.success("登录成功");
+                // router.push("/");
             } finally {
                 loading.value = false;
             }

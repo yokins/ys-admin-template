@@ -8,6 +8,11 @@ import router from "@/router";
 import components from "@/components/index.js";
 import App from "@/App.vue";
 
+import apis from "./apis";
+window.$ys = {
+    apis: apis
+};
+
 const app = createApp(App);
 
 Object.keys(components).forEach((key) => {
@@ -17,4 +22,6 @@ app.use(pinia);
 app.use(i18n);
 app.use(router);
 
-app.mount("#app");
+router.isReady().then(() => {
+    app.mount("#app");
+});
