@@ -95,9 +95,11 @@ import { useRouter } from "vue-router";
 import { useMessage } from "naive-ui";
 import { User, Password } from "@vicons/carbon";
 import LogoPng from "@/assets/logo.png";
+import { useGlobalStore } from "@/stores/global";
 
 const router = useRouter();
 const message = useMessage();
+const globalStore = useGlobalStore();
 
 const formRef = shallowRef(null);
 const loading = ref(false);
@@ -124,7 +126,7 @@ const handleLogin = (e) => {
             try {
                 // 这里添加您的登录逻辑
                 const res = await window.$ys.apis.auth.login(formValue.value);
-                setCurrentUser(res?.data);
+                globalStore.setCurrentUser(res?.data);
                 message.success("登录成功");
                 router.push("/");
             } finally {

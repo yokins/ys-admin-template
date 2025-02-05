@@ -19,10 +19,11 @@ export default {
          * @return {*}
          */
         checkLogin(to, from, next) {
+            console.log("🚀 ~ checkLogin ~ to, from:", to, from);
             const globalStore = useGlobalStore();
 
             if (globalStore.currentUser) {
-                if (to.name == "root" || to.name == "auth_login") {
+                if (to.name == "auth_login") {
                     next({ name: "root" });
                 } else {
                     next();

@@ -3,11 +3,10 @@ export default [
         url: "/api/v1/auth/login",
         method: "post",
         response: ({ body }) => {
-            console.log("🚀 ~ body:", body);
             const { username, password } = body;
 
             // 模拟用户验证
-            if (username === "admin" && password === "admin123") {
+            if (username === "admin" && password === "123456") {
                 return {
                     code: 200,
                     data: {
