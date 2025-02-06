@@ -163,8 +163,9 @@ const animation = computed({
 });
 
 const langs = computed(() => {
+    console.log(i18n);
     return i18n.global.availableLocales.map((el) => ({
-        label: el,
+        label: i18n.global.t(`system.lang.${el}`),
         value: el
     }));
 });
