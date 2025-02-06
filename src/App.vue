@@ -17,8 +17,10 @@
                         <component :is="currentLayout">
                             <router-view v-slot="{ Component }">
                                 <transition
-                                    name="fade-slide"
+                                    name="custom-transition"
                                     mode="out-in"
+                                    enter-active-class="animate__animated animate__fadeInRight"
+                                    leave-active-class="animate__animated animate__fadeOutLeft"
                                 >
                                     <component :is="Component" />
                                 </transition>
@@ -36,6 +38,7 @@ import i18n from "@/i18n";
 import { useConfigStore } from "@/stores/config";
 import { dateZhCN, zhCN, enUS, dateEnUS } from "naive-ui";
 import layouts from "@/layouts";
+import "animate.css";
 
 const router = useRouter();
 
@@ -67,18 +70,12 @@ const currentLayout = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-    transition: all 0.3s ease;
+.custom-transition-enter-active,
+.custom-transition-leave-active {
+    position: relative;
 }
 
-.fade-slide-enter-from {
-    opacity: 0;
-    transform: translateX(-30px);
-}
-
-.fade-slide-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
+.animate__animated {
+    animation-duration: 0.5s;
 }
 </style>
