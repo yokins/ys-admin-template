@@ -21,7 +21,29 @@
             :size="configStore.layout.padding"
             align="center"
         >
+            <n-button
+                type="primary"
+                size="small"
+                text
+                @click="refreshPage"
+            >
+                <YsIcon>
+                    <Rotate360></Rotate360>
+                </YsIcon>
+            </n-button>
+            <n-button
+                type="primary"
+                size="small"
+                text
+                @click="toggleFullscreen"
+            >
+                <YsIcon>
+                    <Maximize v-if="!isFullscreen"></Maximize>
+                    <Minimize v-else></Minimize>
+                </YsIcon>
+            </n-button>
             <ThemeConfig></ThemeConfig>
+            <UserAvatar></UserAvatar>
             <div class="placeholder"></div>
         </n-flex>
     </n-flex>
@@ -29,6 +51,7 @@
 
 <script lang="jsx" setup>
 import ThemeConfig from "@/components/ThemeConfig/Index.vue";
+import UserAvatar from "@/components/UserAvatar/Index.vue";
 import { useConfigStore } from "@/stores/config";
 import { useGlobalStore } from "@/stores/global";
 
@@ -40,6 +63,29 @@ const style = computed(() => {
 });
 
 const globalStore = useGlobalStore();
+
+import { Rotate360, Maximize, Minimize } from "@vicons/carbon";
+import YsIcon from "@/components/YsIcon.vue";
+
+const isFullscreen = ref(false);
+
+const refreshPage = () => {
+    window.location.reload();
+};
+
+const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        isFullscreen.value = true;
+    } else {
+        document.exitFullscreen();
+        isFullscreen.value = false;
+    }
+};
+
+document.addEventListener("fullscreenchange", () => {
+    isFullscreen.value = !!document.fullscreenElement;
+});
 </script>
 
 <style lang="scss" scoped>

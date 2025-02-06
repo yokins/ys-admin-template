@@ -25,6 +25,11 @@ export default {
                 password: "Please enter your password"
             }
         },
+        userAvatar: {
+            profile: "Profile",
+            password: "Change Password",
+            logout: "Logout"
+        },
         theme: {
             title: "Theme Settings",
             color: "Theme Color",

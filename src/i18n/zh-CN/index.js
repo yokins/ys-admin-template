@@ -25,6 +25,11 @@ export default {
                 password: "请输入密码"
             }
         },
+        userAvatar: {
+            profile: "个人信息",
+            password: "修改密码",
+            logout: "退出登录"
+        },
         theme: {
             title: "主题设置",
             color: "主题色",
