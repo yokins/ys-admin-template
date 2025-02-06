@@ -7,12 +7,12 @@
 - 🎯 **Vue 3 + Vite**：采用 Vue 3 Composition API 和 Vite 构建工具
 - 🎨 **NaiveUI**：集成美观易用的 NaiveUI 组件库
 - 🌍 **国际化**：基于 vue-i18n 的多语言支持
-- 🎭 **主题配置**：灵活的主题配置功能
+  <!-- - 🎭 **主题配置**：灵活的主题配置功能 -->
 - 📦 **组件自动导入**：基于 unplugin-vue-components 的组件自动导入
-- 📱 **响应式设计**：适配不同尺寸屏幕
-- 🔐 **权限管理**：完善的权限控制系统
+      <!-- - 📱 **响应式设计**：适配不同尺寸屏幕 -->
+      <!-- - 🔐 **权限管理**：完善的权限控制系统 -->
 - 🔍 **Mock 数据**：集成 Mock.js 进行数据模拟
-- 🧪 **测试工具**：集成 Vitest 单元测试和 Playwright E2E 测试
+      <!-- - 🧪 **测试工具**：集成 Vitest 单元测试和 Playwright E2E 测试 -->
 
 ## 🚀 技术栈
 
@@ -25,8 +25,8 @@
 - **国际化**：Vue I18n
 - **CSS 预处理**：Sass
 - **代码规范**：ESLint + Prettier + Oxlint
-- **单元测试**：Vitest
-- **E2E测试**：Playwright
+    <!-- - **单元测试**：Vitest
+- **E2E测试**：Playwright -->
 
 ## 📦 安装
 
@@ -46,7 +46,7 @@ pnpm dev
 pnpm build
 ```
 
-## 🧪 测试
+<!-- ## 🧪 测试
 
 ### 单元测试
 
@@ -71,7 +71,7 @@ pnpm test:e2e tests/example.spec.ts
 
 # 调试模式运行测试
 pnpm test:e2e --debug
-```
+``` -->
 
 ## 📝 代码规范
 
