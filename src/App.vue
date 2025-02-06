@@ -2,7 +2,7 @@
  * @Author: Yokin shi
  * @Date: 2025-01-22 10:28:36
  * @LastEditors: yokins yokins.shi@icloud.com
- * @LastEditTime: 2025-02-05 17:52:13
+ * @LastEditTime: 2025-02-06 11:11:05
  * @Description: 请输入文件描述
 -->
 <template>
@@ -19,8 +19,8 @@
                                 <transition
                                     name="custom-transition"
                                     mode="out-in"
-                                    enter-active-class="animate__animated animate__fadeInRight"
-                                    leave-active-class="animate__animated animate__fadeOutLeft"
+                                    :enter-active-class="`animate__animated animate__${configStore.animation}InUp`"
+                                    :leave-active-class="`animate__animated animate__${configStore.animation}OutDown`"
                                 >
                                     <component :is="Component" />
                                 </transition>

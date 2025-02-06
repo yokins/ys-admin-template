@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 export const useConfigStore = defineStore("config", {
     state: () => {
         return {
+            animation: "fade",
             lang: "zh-CN",
             goldenRatio: 1.618,
             colors: [
@@ -48,6 +49,9 @@ export const useConfigStore = defineStore("config", {
         setLang(lang = "zh-CN") {
             this.lang = lang;
             i18n.global.locale = lang;
+        },
+        setAnimation(animation = "fade") {
+            this.animation = animation;
         }
     },
     persist: true

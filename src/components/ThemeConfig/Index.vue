@@ -128,6 +128,13 @@
                     :options="langs"
                 ></n-select>
             </ConfigBlock>
+
+            <ConfigBlock title="动画效果">
+                <n-select
+                    v-model:value="animation"
+                    :options="animations"
+                ></n-select>
+            </ConfigBlock>
         </n-drawer-content>
     </n-drawer>
 </template>
@@ -137,6 +144,23 @@ import { Settings, Checkmark } from "@vicons/carbon";
 import { useConfigStore } from "@/stores/config";
 import ConfigBlock from "./ConfigBlock.vue";
 import i18n from "@/i18n";
+
+const animations = [
+    { label: "淡入淡出", value: "fade" },
+    { label: "滑动", value: "slide" },
+    { label: "缩放", value: "zoom" },
+    { label: "弹跳", value: "bounce" },
+    { label: "旋转", value: "rotate" }
+];
+
+const animation = computed({
+    get() {
+        return configStore.animation;
+    },
+    set(value) {
+        configStore.setAnimation(value);
+    }
+});
 
 const langs = computed(() => {
     return i18n.global.availableLocales.map((el) => ({
