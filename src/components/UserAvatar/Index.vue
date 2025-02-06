@@ -68,7 +68,7 @@ const handleSelect = (key) => {
                 onPositiveClick: async () => {
                     await window.$ys.apis.auth.logout();
                     globalStore.clearCurrentUser();
-                    router.push("/login");
+                    router.push({ name: "auth_login" });
                 }
             });
             break;

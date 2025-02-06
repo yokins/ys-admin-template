@@ -13,6 +13,9 @@ export const useGlobalStore = defineStore("global", {
     actions: {
         setCurrentUser(user = null) {
             this.currentUser = user;
+        },
+        clearCurrentUser() {
+            this.currentUser = null;
         }
     },
     persist: true

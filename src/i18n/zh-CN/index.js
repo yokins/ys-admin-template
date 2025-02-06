@@ -10,6 +10,8 @@ export default {
     },
     menu,
     common: {
+        yes: "是",
+        no: "否",
         login: {
             welcome: "欢迎回到YS后台模板",
             subtitle: "请登录您的账号",
@@ -28,7 +30,9 @@ export default {
         userAvatar: {
             profile: "个人信息",
             password: "修改密码",
-            logout: "退出登录"
+            logout: "退出登录",
+            logoutConfirmTitle: "确认退出",
+            logoutConfirmContent: "确定要退出登录吗？"
         },
         theme: {
             title: "主题设置",

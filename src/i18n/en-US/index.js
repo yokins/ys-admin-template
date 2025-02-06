@@ -10,6 +10,9 @@ export default {
     },
     menu,
     common: {
+        yes: "YES",
+        no: "NO",
+
         login: {
             welcome: "Welcome back to YS Admin Template",
             subtitle: "Please login to your account",
@@ -28,7 +31,9 @@ export default {
         userAvatar: {
             profile: "Profile",
             password: "Change Password",
-            logout: "Logout"
+            logout: "Logout",
+            logoutConfirmTitle: "Confirm Logout",
+            logoutConfirmContent: "Are you sure you want to logout?"
         },
         theme: {
             title: "Theme Settings",

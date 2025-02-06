@@ -1,5 +1,16 @@
 export default [
     {
+        url: "/api/v1/auth/logout",
+        method: "post",
+        response: () => {
+            return {
+                code: 200,
+                data: null,
+                message: "登出成功"
+            };
+        }
+    },
+    {
         url: "/api/v1/auth/login",
         method: "post",
         response: ({ body }) => {
