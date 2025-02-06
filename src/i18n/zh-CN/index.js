@@ -32,7 +32,9 @@ export default {
             password: "修改密码",
             logout: "退出登录",
             logoutConfirmTitle: "确认退出",
-            logoutConfirmContent: "确定要退出登录吗？"
+            logoutConfirmContent: "确定要退出登录吗？",
+            logoutSuccess: "退出成功",
+            logoutFailed: "退出失败"
         },
         theme: {
             title: "主题设置",

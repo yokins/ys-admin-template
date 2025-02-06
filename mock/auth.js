@@ -22,14 +22,12 @@ export default [
                     code: 200,
                     data: {
                         token: "mock-token-" + Date.now(),
-                        user: {
-                            id: 1,
-                            username: "admin",
-                            nickname: "管理员",
-                            avatar: "https://avatars.githubusercontent.com/u/1",
-                            roles: ["admin"],
-                            permissions: ["*"]
-                        }
+                        id: 1,
+                        username: "admin",
+                        nickname: "管理员",
+                        avatar: "https://avatars.githubusercontent.com/u/1",
+                        roles: ["admin"],
+                        permissions: ["*"]
                     },
                     message: "登录成功"
                 };

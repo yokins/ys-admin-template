@@ -9,9 +9,24 @@
                 v-for="tab in tabStore.tabs"
                 :key="tab.name"
                 :name="tab.name"
-                :tab="t(`menu.${tab.name}`)"
                 @contextmenu.prevent="handleContextMenu($event, tab)"
-            />
+            >
+                <div class="tab-content">
+                    <span>{{ t(`menu.${tab.name}`) }}</span>
+                    <n-button
+                        v-if="tabStore.tabs.length > 1"
+                        size="tiny"
+                        quaternary
+                        circle
+                        class="close-button"
+                        @click.stop="handleClose(tab)"
+                    >
+                        <template #icon>
+                            <n-icon><close /></n-icon>
+                        </template>
+                    </n-button>
+                </div>
+            </n-tab>
         </n-tabs>
 
         <n-dropdown
@@ -31,6 +46,7 @@ import { ref } from "vue";
 import { useTabsStore } from "@/stores/tabs";
 import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { Close } from "@vicons/carbon";
 
 const { t } = useI18n();
 const route = useRoute();
@@ -92,6 +108,10 @@ const handleDropdownSelect = (key) => {
 const handleTabChange = (name) => {
     router.push({ name });
 };
+
+const handleClose = (tab) => {
+    tabStore.removeTab(tab.name);
+};
 </script>
 
 <style scoped>
@@ -101,5 +121,20 @@ const handleTabChange = (name) => {
     height: 100%;
     padding: 0 16px;
     box-sizing: border-box;
+}
+
+.tab-content {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.close-button {
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.close-button:hover {
+    opacity: 1;
 }
 </style>

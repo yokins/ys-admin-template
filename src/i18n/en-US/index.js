@@ -33,7 +33,9 @@ export default {
             password: "Change Password",
             logout: "Logout",
             logoutConfirmTitle: "Confirm Logout",
-            logoutConfirmContent: "Are you sure you want to logout?"
+            logoutConfirmContent: "Are you sure you want to logout?",
+            logoutSuccess: "Logout successful",
+            logoutFailed: "Logout failed"
         },
         theme: {
             title: "Theme Settings",

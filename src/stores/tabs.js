@@ -74,6 +74,11 @@ export const useTabsStore = defineStore("tabs", {
                     this.cachedViews.push(name);
                 }
             });
+        },
+        clearAllTabs() {
+            this.tabs = [];
+            this.activeTab = null;
+            this.cachedViews = [];
         }
     },
     persist: true
