@@ -1,60 +1,92 @@
-# website
+# Website
 
-This template should help get you started developing with Vue 3 in Vite.
+一个基于 Vue 3 的现代化前端管理系统模板，集成了多项实用功能和最佳实践。
 
-## Recommended IDE Setup
+## ✨ 特性
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 🎯 **Vue 3 + Vite**：采用 Vue 3 Composition API 和 Vite 构建工具
+- 🎨 **NaiveUI**：集成美观易用的 NaiveUI 组件库
+- 🌍 **国际化**：基于 vue-i18n 的多语言支持
+- 🎭 **主题配置**：灵活的主题配置功能
+- 📦 **组件自动导入**：基于 unplugin-vue-components 的组件自动导入
+- 📱 **响应式设计**：适配不同尺寸屏幕
+- 🔐 **权限管理**：完善的权限控制系统
+- 🔍 **Mock 数据**：集成 Mock.js 进行数据模拟
+- 🧪 **测试工具**：集成 Vitest 单元测试和 Playwright E2E 测试
 
-## Customize configuration
+## 🚀 技术栈
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **核心框架**：Vue 3
+- **构建工具**：Vite 6
+- **UI 框架**：Naive UI
+- **状态管理**：Pinia
+- **路由工具**：Vue Router 4
+- **HTTP 工具**：Axios
+- **国际化**：Vue I18n
+- **CSS 预处理**：Sass
+- **代码规范**：ESLint + Prettier + Oxlint
+- **单元测试**：Vitest
+- **E2E测试**：Playwright
 
-## Project Setup
+## 📦 安装
 
-```sh
+```bash
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+## 🔧 开发
 
-```sh
+```bash
 pnpm dev
 ```
 
-### Compile and Minify for Production
+## 🏗️ 构建
 
-```sh
+```bash
 pnpm build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## 🧪 测试
 
-```sh
+### 单元测试
+
+```bash
 pnpm test:unit
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+### E2E 测试
 
-```sh
-# Install browsers for the first run
+```bash
+# 首次运行需要安装浏览器
 npx playwright install
 
-# When testing on CI, must build the project first
-pnpm build
-
-# Runs the end-to-end tests
+# 运行所有测试
 pnpm test:e2e
-# Runs the tests only on Chromium
+
+# 仅在 Chromium 中运行测试
 pnpm test:e2e --project=chromium
-# Runs the tests of a specific file
+
+# 运行指定测试文件
 pnpm test:e2e tests/example.spec.ts
-# Runs the tests in debug mode
+
+# 调试模式运行测试
 pnpm test:e2e --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 📝 代码规范
 
-```sh
+```bash
+# ESLint 检查并修复
 pnpm lint
+
+# 格式化代码
+pnpm format
 ```
+
+## 🔧 开发工具配置
+
+推荐使用 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 进行开发（请禁用 Vetur）。
+
+## 📄 许可证
+
+[MIT](LICENSE)
