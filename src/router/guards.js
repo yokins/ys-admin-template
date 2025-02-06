@@ -1,6 +1,7 @@
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import { useGlobalStore } from "@/stores/global";
+import { useTabsStore } from "@/stores/tabs";
 
 NProgress.configure({ showSpinner: false });
 
@@ -43,6 +44,16 @@ export default {
          */
         nProgressEnd() {
             NProgress.done();
+        },
+        /**
+         * @description: 处理标签页的自动添加
+         * @return {*}
+         */
+        handleTabs(to) {
+            if (to.name && to.meta?.layout === "AdminLayout") {
+                const tabStore = useTabsStore();
+                tabStore.addTab(to);
+            }
         }
     }
 };
