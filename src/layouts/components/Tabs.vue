@@ -9,7 +9,7 @@
                 v-for="tab in tabStore.tabs"
                 :key="tab.name"
                 :name="tab.name"
-                :tab="tab.title"
+                :tab="t(`menu.${tab.name}`)"
                 @contextmenu.prevent="handleContextMenu($event, tab)"
             />
         </n-tabs>
@@ -30,7 +30,9 @@
 import { ref } from "vue";
 import { useTabsStore } from "@/stores/tabs";
 import { useRoute, useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const tabStore = useTabsStore();

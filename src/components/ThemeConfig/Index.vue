@@ -16,8 +16,8 @@
         placement="right"
         :show-mask="false"
     >
-        <n-drawer-content title="主题设置">
-            <ConfigBlock title="主题色">
+        <n-drawer-content :title="t('common.theme.title')">
+            <ConfigBlock :title="t('common.theme.color')">
                 <n-flex
                     align="center"
                     :wrap="true"
@@ -44,7 +44,7 @@
                 </n-flex>
             </ConfigBlock>
 
-            <ConfigBlock title="布局-页头高度">
+            <ConfigBlock :title="t('common.theme.layout.headerHeight')">
                 <n-slider
                     v-model:value="configStore.layout.header.height"
                     :min="30"
@@ -57,7 +57,7 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="布局-页签高度">
+            <ConfigBlock :title="t('common.theme.layout.tabHeight')">
                 <n-slider
                     v-model:value="configStore.layout.tabs.height"
                     :min="30"
@@ -70,7 +70,7 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="布局-侧边栏宽度">
+            <ConfigBlock :title="t('common.theme.layout.sidebarWidth')">
                 <n-slider
                     v-model:value="configStore.layout.sider.width"
                     :min="200"
@@ -83,7 +83,7 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="布局-页脚高度">
+            <ConfigBlock :title="t('common.theme.layout.footerHeight')">
                 <n-slider
                     v-model:value="configStore.layout.footer.height"
                     :min="20"
@@ -96,7 +96,7 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="布局-外边距宽度">
+            <ConfigBlock :title="t('common.theme.layout.marginWidth')">
                 <n-slider
                     v-model:value="configStore.layout.margin"
                     :min="10"
@@ -109,7 +109,7 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="布局-内边距宽度">
+            <ConfigBlock :title="t('common.theme.layout.paddingWidth')">
                 <n-slider
                     v-model:value="configStore.layout.padding"
                     :min="10"
@@ -122,14 +122,14 @@
                 />
             </ConfigBlock>
 
-            <ConfigBlock title="国际化">
+            <ConfigBlock :title="t('common.theme.title')">
                 <n-select
                     v-model:value="lang"
                     :options="langs"
                 ></n-select>
             </ConfigBlock>
 
-            <ConfigBlock title="动画效果">
+            <ConfigBlock :title="t('common.theme.animation.title')">
                 <n-select
                     v-model:value="animation"
                     :options="animations"
@@ -144,14 +144,17 @@ import { Settings, Checkmark } from "@vicons/carbon";
 import { useConfigStore } from "@/stores/config";
 import ConfigBlock from "./ConfigBlock.vue";
 import i18n from "@/i18n";
+import { useI18n } from "vue-i18n";
 
-const animations = [
-    { label: "淡入淡出", value: "fade" },
-    { label: "滑动", value: "slide" },
-    { label: "缩放", value: "zoom" },
-    { label: "弹跳", value: "bounce" },
-    { label: "旋转", value: "rotate" }
-];
+const { t } = useI18n();
+
+const animations = computed(() => [
+    { label: t("common.theme.animation.fade"), value: "fade" },
+    { label: t("common.theme.animation.slide"), value: "slide" },
+    { label: t("common.theme.animation.zoom"), value: "zoom" },
+    { label: t("common.theme.animation.bounce"), value: "bounce" },
+    { label: t("common.theme.animation.rotate"), value: "rotate" }
+]);
 
 const animation = computed({
     get() {

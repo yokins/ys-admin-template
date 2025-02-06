@@ -1,4 +1,6 @@
 import { RouterLink } from "vue-router";
+import { h } from "vue";
+import i18n from "@/i18n";
 
 const routeType = {
     NODE: Symbol("节点"),
@@ -71,7 +73,7 @@ export const genMenu = (route) => {
                         name: route.name
                     }
                 },
-                { default: () => route.meta?.title }
+                { default: () => i18n.global.t(`menu.${route.name}`) }
             ),
         key: route.name
     };

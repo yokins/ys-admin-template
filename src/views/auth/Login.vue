@@ -23,8 +23,8 @@
                         />
                     </div>
                 </div>
-                <h2 class="login-title">欢迎回到YS后台模板</h2>
-                <p class="login-subtitle">请登录您的账号</p>
+                <h2 class="login-title">{{ t("common.login.welcome") }}</h2>
+                <p class="login-subtitle">{{ t("common.login.subtitle") }}</p>
             </div>
 
             <n-form
@@ -37,7 +37,7 @@
                 <n-form-item path="username">
                     <n-input
                         v-model:value="formValue.username"
-                        placeholder="用户名"
+                        :placeholder="t('common.login.username')"
                         class="login-input"
                     >
                         <template #prefix>
@@ -50,7 +50,7 @@
                     <n-input
                         v-model:value="formValue.password"
                         type="password"
-                        placeholder="密码"
+                        :placeholder="t('common.login.password')"
                         class="login-input"
                         @keydown.enter="handleLogin"
                     >
@@ -63,14 +63,14 @@
                 <n-form-item :show-feedback="false">
                     <div class="flex justify-between mb-4">
                         <n-checkbox v-model:checked="rememberMe">
-                            <span class="text-sm">记住我</span>
+                            <span class="text-sm">{{ t("common.login.remember") }}</span>
                         </n-checkbox>
                         <n-button
                             text
                             type="primary"
                             class="forgot-password"
                         >
-                            忘记密码？
+                            {{ t("common.login.forgot") }}
                         </n-button>
                     </div>
                 </n-form-item>
@@ -82,7 +82,7 @@
                     @click="handleLogin"
                     class="login-button"
                 >
-                    {{ loading ? "登录中..." : "登录" }}
+                    {{ loading ? t("common.login.loading") : t("common.login.button") }}
                 </n-button>
             </n-form>
         </n-card>
@@ -93,9 +93,12 @@
 import { ref, shallowRef } from "vue";
 import { useRouter } from "vue-router";
 import { useMessage } from "naive-ui";
+import { useI18n } from "vue-i18n";
 import { User, Password } from "@vicons/carbon";
 import LogoPng from "@/assets/logo.png";
 import { useGlobalStore } from "@/stores/global";
+
+const { t } = useI18n();
 
 const router = useRouter();
 const message = useMessage();
@@ -113,8 +116,8 @@ const formValue = ref({
 
 // 表单验证规则
 const rules = {
-    username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-    password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+    username: [{ required: true, message: t("common.login.validation.username"), trigger: "blur" }],
+    password: [{ required: true, message: t("common.login.validation.password"), trigger: "blur" }]
 };
 
 // 登录处理函数
@@ -127,7 +130,7 @@ const handleLogin = (e) => {
                 // 这里添加您的登录逻辑
                 const res = await window.$ys.apis.auth.login(formValue.value);
                 globalStore.setCurrentUser(res?.data);
-                message.success("登录成功");
+                message.success(t("common.login.success"));
                 router.push("/");
             } finally {
                 loading.value = false;
