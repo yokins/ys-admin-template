@@ -23,11 +23,11 @@
 </template>
 
 <script lang="jsx" setup>
-import AdminTemplate from "@/layouts/components/Admin.vue";
-import HeadBar from "@/layouts/components/HeadBar.vue";
-import Menu from "@/layouts/components/Menu.vue";
-import Tabs from "@/layouts/components/Tabs.vue";
-import { useConfigStore } from "@/stores/config";
+import AdminTemplate from '@/layouts/components/Admin.vue';
+import HeadBar from '@/layouts/components/HeadBar.vue';
+import Menu from '@/layouts/components/Menu.vue';
+import Tabs from '@/layouts/components/Tabs.vue';
+import {useConfigStore} from '@/stores/config';
 
 const configStore = useConfigStore();
 </script>

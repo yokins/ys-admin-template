@@ -1,9 +1,9 @@
-import "nprogress/nprogress.css";
-import NProgress from "nprogress";
-import { useGlobalStore } from "@/stores/global";
-import { useTabsStore } from "@/stores/tabs";
+import 'nprogress/nprogress.css';
+import NProgress from 'nprogress';
+import {useGlobalStore} from '@/stores/global';
+import {useTabsStore} from '@/stores/tabs';
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({showSpinner: false});
 
 // 按照想要加载的顺序来，从开始到结束
 export default {
@@ -23,8 +23,8 @@ export default {
             const globalStore = useGlobalStore();
 
             if (globalStore.currentUser) {
-                if (to.name == "auth_login") {
-                    next({ name: "root" });
+                if (to.name == 'auth_login') {
+                    next({name: 'root'});
                 } else {
                     next();
                 }
@@ -32,7 +32,7 @@ export default {
                 if (to.meta?.skipAuth) {
                     next();
                 } else {
-                    next({ name: "auth_login" });
+                    next({name: 'auth_login'});
                 }
             }
         }
@@ -50,7 +50,7 @@ export default {
          * @return {*}
          */
         handleTabs(to) {
-            if (to.name && to.meta?.layout === "AdminLayout") {
+            if (to.name && to.meta?.layout === 'AdminLayout') {
                 const tabStore = useTabsStore();
                 tabStore.addTab(to);
             }

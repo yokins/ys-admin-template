@@ -50,10 +50,10 @@
 </template>
 
 <script lang="jsx" setup>
-import ThemeConfig from "@/components/ThemeConfig/Index.vue";
-import UserAvatar from "@/components/UserAvatar/Index.vue";
-import { useConfigStore } from "@/stores/config";
-import { useGlobalStore } from "@/stores/global";
+import ThemeConfig from '@/components/ThemeConfig/Index.vue';
+import UserAvatar from '@/components/UserAvatar/Index.vue';
+import {useConfigStore} from '@/stores/config';
+import {useGlobalStore} from '@/stores/global';
 
 const configStore = useConfigStore();
 const style = computed(() => {
@@ -64,8 +64,8 @@ const style = computed(() => {
 
 const globalStore = useGlobalStore();
 
-import { Rotate360, Maximize, Minimize } from "@vicons/carbon";
-import YsIcon from "@/components/YsIcon.vue";
+import {Rotate360, Maximize, Minimize} from '@vicons/carbon';
+import YsIcon from '@/components/YsIcon.vue';
 
 const isFullscreen = ref(false);
 
@@ -83,7 +83,7 @@ const toggleFullscreen = () => {
     }
 };
 
-document.addEventListener("fullscreenchange", () => {
+document.addEventListener('fullscreenchange', () => {
     isFullscreen.value = !!document.fullscreenElement;
 });
 </script>

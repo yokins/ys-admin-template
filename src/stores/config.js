@@ -1,27 +1,27 @@
-import i18n from "@/i18n";
-import { defineStore } from "pinia";
+import i18n from '@/i18n';
+import {defineStore} from 'pinia';
 
-export const useConfigStore = defineStore("config", {
+export const useConfigStore = defineStore('config', {
     state: () => {
         return {
-            animation: "fade",
-            lang: "zh-CN",
+            animation: 'fade',
+            lang: 'zh-CN',
             goldenRatio: 1.618,
             colors: [
-                "#65647C",
-                "#1890ff",
-                "#FFCFEF",
-                "#0A97B0",
-                "#0A5EB0",
-                "#D8C4B6",
-                "#F6B17A",
-                "#E16A54",
-                "#987D9A",
-                "#8ACDD7"
+                '#65647C',
+                '#1890ff',
+                '#FFCFEF',
+                '#0A97B0',
+                '#0A5EB0',
+                '#D8C4B6',
+                '#F6B17A',
+                '#E16A54',
+                '#987D9A',
+                '#8ACDD7'
             ],
             theme: {
                 colors: {
-                    primary: "#65647C"
+                    primary: '#65647C'
                 }
             },
             layout: {
@@ -36,7 +36,7 @@ export const useConfigStore = defineStore("config", {
                 },
                 footer: {
                     height: 30,
-                    text: "© 2025 YS Admin Template"
+                    text: '© 2025 YS Admin Template'
                 },
                 padding: 16,
                 margin: 16,
@@ -46,11 +46,11 @@ export const useConfigStore = defineStore("config", {
     },
     getters: {},
     actions: {
-        setLang(lang = "zh-CN") {
+        setLang(lang = 'zh-CN') {
             this.lang = lang;
             i18n.global.locale = lang;
         },
-        setAnimation(animation = "fade") {
+        setAnimation(animation = 'fade') {
             this.animation = animation;
         }
     },

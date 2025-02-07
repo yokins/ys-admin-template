@@ -6,15 +6,15 @@
  * @Description: 请输入文件描述
  */
 
-import { useGlobalStore } from "@/stores/global";
-import axios from "axios";
-import { naiveFb } from "@/utils/naive";
+import {useGlobalStore} from '@/stores/global';
+import axios from 'axios';
+import {naiveFb} from '@/utils/naive';
 
 const fb = naiveFb();
 
-const createRequest = ({ baseURL = "", timeout = 10000, headers = {} } = options) => {
+const createRequest = ({baseURL = '', timeout = 10000, headers = {}} = options) => {
     headers = {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         ...headers
     };
 
@@ -44,31 +44,31 @@ const createRequest = ({ baseURL = "", timeout = 10000, headers = {} } = options
                         return response.data; // 直接返回接口的 data 数据
                     case 401:
                         fb.nte.warning({
-                            content: "温馨提示",
-                            meta: response.data?.message ?? "未知权限，请重新登录",
+                            content: '温馨提示',
+                            meta: response.data?.message ?? '未知权限，请重新登录',
                             duration: 2000,
                             keepAliveOnHover: true
                         });
                         return Promise.reject(response.data);
                     case 500:
                         fb.nte.warning({
-                            content: "温馨提示",
-                            meta: response.data?.message ?? "服务器错误",
+                            content: '温馨提示',
+                            meta: response.data?.message ?? '服务器错误',
                             duration: 2000,
                             keepAliveOnHover: true
                         });
                         return Promise.reject(response.data);
                     default:
                         fb.nte.error({
-                            content: "温馨提示",
-                            meta: response.data?.message ?? "未知错误",
+                            content: '温馨提示',
+                            meta: response.data?.message ?? '未知错误',
                             duration: 2000,
                             keepAliveOnHover: true
                         });
                         return Promise.reject(response.data);
                 }
             }
-            return Promise.reject(new Error("请求失败"));
+            return Promise.reject(new Error('请求失败'));
         },
         (error) => {
             // if (error.response) {
@@ -85,8 +85,8 @@ const createRequest = ({ baseURL = "", timeout = 10000, headers = {} } = options
             //     }
             // }
             fb.nte.error({
-                content: "温馨提示",
-                meta: "服务故障,请刷新页面重试",
+                content: '温馨提示',
+                meta: '服务故障,请刷新页面重试',
                 duration: 2000,
                 keepAliveOnHover: true
             });

@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import { useRoute, useRouter } from "vue-router";
+import {defineStore} from 'pinia';
+import {useRoute, useRouter} from 'vue-router';
 
-export const useTabsStore = defineStore("tabs", {
+export const useTabsStore = defineStore('tabs', {
     state: () => ({
         tabs: [],
         activeTab: null,
@@ -14,8 +14,8 @@ export const useTabsStore = defineStore("tabs", {
     },
     actions: {
         addTab(route) {
-            const { name, path, meta = {} } = route;
-            const { title = "未命名页面", keepAlive = false } = meta;
+            const {name, path, meta = {}} = route;
+            const {title = '未命名页面', keepAlive = false} = meta;
 
             // 如果标签已存在，则不重复添加
             if (this.tabs.some((tab) => tab.name === name)) {
@@ -45,7 +45,7 @@ export const useTabsStore = defineStore("tabs", {
                 const nextTab = this.tabs[index + 1] || this.tabs[index - 1];
                 if (nextTab) {
                     this.activeTab = nextTab.name;
-                    useRouter().push({ name: nextTab.name });
+                    useRouter().push({name: nextTab.name});
                 }
             }
 
@@ -64,12 +64,12 @@ export const useTabsStore = defineStore("tabs", {
             }
         },
         refreshTab(name, route) {
-            console.log("🚀 ~ refreshTab ~ name:", name, route);
+            console.log('🚀 ~ refreshTab ~ name:', name, route);
             this.removeCachedView(name);
 
             // 通过移除缓存并重新添加来实现刷新
             nextTick(() => {
-                console.log("🚀 ~ nextTick ~ route:", route);
+                console.log('🚀 ~ nextTick ~ route:', route);
                 if (route.meta.keepAlive) {
                     this.cachedViews.push(name);
                 }

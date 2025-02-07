@@ -42,19 +42,19 @@
 </template>
 
 <script lang="jsx" setup>
-import { ref } from "vue";
-import { useTabsStore } from "@/stores/tabs";
-import { useRoute, useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
-import { Close } from "@vicons/carbon";
+import {ref} from 'vue';
+import {useTabsStore} from '@/stores/tabs';
+import {useRoute, useRouter} from 'vue-router';
+import {useI18n} from 'vue-i18n';
+import {Close} from '@vicons/carbon';
 
-const { t } = useI18n();
+const {t} = useI18n();
 const route = useRoute();
 const router = useRouter();
 const tabStore = useTabsStore();
 
 // 初始化当前路由对应的标签
-if (route.name && route.meta?.layout === "AdminLayout") {
+if (route.name && route.meta?.layout === 'AdminLayout') {
     tabStore.addTab(route);
 }
 
@@ -66,16 +66,16 @@ const currentTab = ref(null);
 
 const dropdownOptions = [
     {
-        label: "刷新",
-        key: "refresh"
+        label: '刷新',
+        key: 'refresh'
     },
     {
-        label: "关闭",
-        key: "close"
+        label: '关闭',
+        key: 'close'
     },
     {
-        label: "关闭其他",
-        key: "closeOthers"
+        label: '关闭其他',
+        key: 'closeOthers'
     }
 ];
 
@@ -91,13 +91,13 @@ const handleDropdownSelect = (key) => {
     if (!currentTab.value) return;
 
     switch (key) {
-        case "refresh":
+        case 'refresh':
             tabStore.refreshTab(currentTab.value.name, route);
             break;
-        case "close":
+        case 'close':
             tabStore.removeTab(currentTab.value.name);
             break;
-        case "closeOthers":
+        case 'closeOthers':
             tabStore.removeOtherTabs(currentTab.value.name);
             break;
     }
@@ -106,7 +106,7 @@ const handleDropdownSelect = (key) => {
 };
 
 const handleTabChange = (name) => {
-    router.push({ name });
+    router.push({name});
 };
 
 const handleClose = (tab) => {

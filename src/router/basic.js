@@ -1,10 +1,10 @@
-import { RouterLink } from "vue-router";
-import { h } from "vue";
-import i18n from "@/i18n";
+import {RouterLink} from 'vue-router';
+import {h} from 'vue';
+import i18n from '@/i18n';
 
 const routeType = {
-    NODE: Symbol("节点"),
-    PAGE: Symbol("页面")
+    NODE: Symbol('节点'),
+    PAGE: Symbol('页面')
 };
 
 /**
@@ -17,13 +17,13 @@ export const defaultMeta = {
     // 检查是否页面缓存
     keepAlive: false,
     // 页面的标题（可为空）
-    title: "",
+    title: '',
     // 页面的icon（可为空）
-    icon: "",
+    icon: '',
     // 页面的母版
-    layout: "default",
+    layout: 'default',
     // 页面的类型
-    routeType: "PAGE",
+    routeType: 'PAGE',
     // 是否是主页
     isRoot: false,
     // 这两个参数为了生成菜单
@@ -33,22 +33,22 @@ export const defaultMeta = {
 
 export const basicRoutes = [
     {
-        path: "/auth/login",
-        name: "auth_login",
+        path: '/auth/login',
+        name: 'auth_login',
         meta: {
             ...defaultMeta,
-            layout: "default",
+            layout: 'default',
             skipAuth: true
         },
-        component: () => import("@/views/auth/Login.vue")
+        component: () => import('@/views/auth/Login.vue')
     },
     {
-        path: "/:pathMatch(.*)*",
-        name: "error",
-        component: () => import("@/views/error/Index.vue"),
+        path: '/:pathMatch(.*)*',
+        name: 'error',
+        component: () => import('@/views/error/Index.vue'),
         meta: {
             ...defaultMeta,
-            layout: "default",
+            layout: 'default',
             skipAuth: true
         }
     }
@@ -73,7 +73,7 @@ export const genMenu = (route) => {
                         name: route.name
                     }
                 },
-                { default: () => i18n.global.t(`menu.${route.name}`) }
+                {default: () => i18n.global.t(`menu.${route.name}`)}
             ),
         key: route.name
     };

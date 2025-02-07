@@ -23,8 +23,8 @@
                         />
                     </div>
                 </div>
-                <h2 class="login-title">{{ t("common.login.welcome") }}</h2>
-                <p class="login-subtitle">{{ t("common.login.subtitle") }}</p>
+                <h2 class="login-title">{{ t('common.login.welcome') }}</h2>
+                <p class="login-subtitle">{{ t('common.login.subtitle') }}</p>
             </div>
 
             <n-form
@@ -63,14 +63,14 @@
                 <n-form-item :show-feedback="false">
                     <div class="flex justify-between mb-4">
                         <n-checkbox v-model:checked="rememberMe">
-                            <span class="text-sm">{{ t("common.login.remember") }}</span>
+                            <span class="text-sm">{{ t('common.login.remember') }}</span>
                         </n-checkbox>
                         <n-button
                             text
                             type="primary"
                             class="forgot-password"
                         >
-                            {{ t("common.login.forgot") }}
+                            {{ t('common.login.forgot') }}
                         </n-button>
                     </div>
                 </n-form-item>
@@ -82,7 +82,7 @@
                     @click="handleLogin"
                     class="login-button"
                 >
-                    {{ loading ? t("common.login.loading") : t("common.login.button") }}
+                    {{ loading ? t('common.login.loading') : t('common.login.button') }}
                 </n-button>
             </n-form>
         </n-card>
@@ -90,15 +90,15 @@
 </template>
 
 <script setup>
-import { ref, shallowRef } from "vue";
-import { useRouter } from "vue-router";
-import { useMessage } from "naive-ui";
-import { useI18n } from "vue-i18n";
-import { User, Password } from "@vicons/carbon";
-import LogoPng from "@/assets/logo.png";
-import { useGlobalStore } from "@/stores/global";
+import {ref, shallowRef} from 'vue';
+import {useRouter} from 'vue-router';
+import {useMessage} from 'naive-ui';
+import {useI18n} from 'vue-i18n';
+import {User, Password} from '@vicons/carbon';
+import LogoPng from '@/assets/logo.png';
+import {useGlobalStore} from '@/stores/global';
 
-const { t } = useI18n();
+const {t} = useI18n();
 
 const router = useRouter();
 const message = useMessage();
@@ -110,14 +110,14 @@ const rememberMe = ref(false);
 
 // 表单数据
 const formValue = ref({
-    username: "",
-    password: ""
+    username: '',
+    password: ''
 });
 
 // 表单验证规则
 const rules = {
-    username: [{ required: true, message: t("common.login.validation.username"), trigger: "blur" }],
-    password: [{ required: true, message: t("common.login.validation.password"), trigger: "blur" }]
+    username: [{required: true, message: t('common.login.validation.username'), trigger: 'blur'}],
+    password: [{required: true, message: t('common.login.validation.password'), trigger: 'blur'}]
 };
 
 // 登录处理函数
@@ -130,8 +130,8 @@ const handleLogin = (e) => {
                 // 这里添加您的登录逻辑
                 const res = await window.$ys.apis.auth.login(formValue.value);
                 globalStore.setCurrentUser(res?.data);
-                message.success(t("common.login.success"));
-                router.push("/");
+                message.success(t('common.login.success'));
+                router.push('/');
             } finally {
                 loading.value = false;
             }

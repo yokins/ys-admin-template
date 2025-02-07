@@ -15,7 +15,7 @@
                 <n-notification-provider>
                     <n-message-provider>
                         <component :is="currentLayout">
-                            <router-view v-slot="{ Component }">
+                            <router-view v-slot="{Component}">
                                 <transition
                                     name="custom-transition"
                                     mode="out-in"
@@ -34,11 +34,11 @@
 </template>
 
 <script lang="jsx" setup>
-import i18n from "@/i18n";
-import { useConfigStore } from "@/stores/config";
-import { dateZhCN, zhCN, enUS, dateEnUS } from "naive-ui";
-import layouts from "@/layouts";
-import "animate.css";
+import i18n from '@/i18n';
+import {useConfigStore} from '@/stores/config';
+import {dateZhCN, zhCN, enUS, dateEnUS} from 'naive-ui';
+import layouts from '@/layouts';
+import 'animate.css';
 
 const router = useRouter();
 
@@ -47,19 +47,19 @@ const route = useRoute();
 const configStore = useConfigStore();
 if (configStore.lang != i18n.global.locale) configStore.setLang(i18n.global.locale);
 const naiveI18n = computed(() => {
-    if (i18n.global.locale === "zh-CN") {
+    if (i18n.global.locale === 'zh-CN') {
         return {
             lang: zhCN,
             dateLang: dateZhCN
         };
     } else {
-        return { lang: enUS, dateLang: dateEnUS };
+        return {lang: enUS, dateLang: dateEnUS};
     }
 });
 
 const themeOverrides = {
     common: {
-        primaryColor: "#2d8cf0"
+        primaryColor: '#2d8cf0'
     }
 };
 

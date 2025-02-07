@@ -8,7 +8,7 @@
 </template>
 
 <script lang="jsx" setup>
-import { useConfigStore } from "@/stores/config";
+import {useConfigStore} from '@/stores/config';
 
 const configStore = useConfigStore();
 
@@ -19,7 +19,7 @@ const props = defineProps({
     },
     color: {
         type: String,
-        default: ""
+        default: ''
     }
 });
 </script>

@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
-import NormalMode from "./modes/normal";
-import { genRoutes } from "./basic";
-import guards from "./guards";
+import {createRouter, createWebHistory} from 'vue-router';
+import NormalMode from './modes/normal';
+import {genRoutes} from './basic';
+import guards from './guards';
 
 const routes = genRoutes(NormalMode);
 

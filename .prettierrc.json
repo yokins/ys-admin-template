@@ -4,9 +4,20 @@
     "tabWidth": 4,
     "useTabs": false,
     "semi": true,
-    "singleQuote": false,
+    "singleQuote": true,
     "printWidth": 120,
     "arrowParens": "always",
-    "bracketSpacing": true,
-    "singleAttributePerLine": true
+    "bracketSpacing": false,
+    "singleAttributePerLine": true,
+    "proseWrap": "always",
+    "overrides": [
+        {
+            "files": "*.vue",
+            "options": {
+                "printWidth": 150,
+                "singleQuote": true,
+                "bracketSpacing": false
+            }
+        }
+    ]
 }

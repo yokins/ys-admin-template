@@ -1,9 +1,9 @@
-import { createDiscreteApi, darkTheme, lightTheme } from "naive-ui";
+import {createDiscreteApi, darkTheme, lightTheme} from 'naive-ui';
 
-const naiveFb = ({ theme = "light" } = {}) => {
-    const { message, notification, dialog } = createDiscreteApi(["message", "dialog", "notification"], {
+const naiveFb = ({theme = 'light'} = {}) => {
+    const {message, notification, dialog} = createDiscreteApi(['message', 'dialog', 'notification'], {
         configProviderProps: {
-            theme: theme == "light" ? lightTheme : darkTheme
+            theme: theme == 'light' ? lightTheme : darkTheme
         }
     });
 
@@ -14,4 +14,4 @@ const naiveFb = ({ theme = "light" } = {}) => {
     };
 };
 
-export { naiveFb };
+export {naiveFb};

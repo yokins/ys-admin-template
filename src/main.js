@@ -1,14 +1,14 @@
-import "normalize.css";
-import "@/assets/styles/app.scss";
+import 'normalize.css';
+import '@/assets/styles/app.scss';
 
-import { createApp } from "vue";
-import pinia from "@/stores/index.js";
-import i18n from "./i18n";
-import router from "@/router";
-import components from "@/components/index.js";
-import App from "@/App.vue";
+import {createApp} from 'vue';
+import pinia from '@/stores/index.js';
+import i18n from './i18n';
+import router from '@/router';
+import components from '@/components/index.js';
+import App from '@/App.vue';
 
-import apis from "./apis";
+import apis from './apis';
 window.$ys = {
     apis: apis
 };
@@ -22,4 +22,4 @@ app.use(pinia);
 app.use(i18n);
 app.use(router);
 
-app.mount("#app");
+app.mount('#app');

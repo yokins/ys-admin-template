@@ -6,7 +6,7 @@
 </template>
 
 <script lang="jsx" setup>
-import { getMenus } from "@/router/basic";
+import {getMenus} from '@/router/basic';
 
 const router = useRouter();
 const menus = getMenus(router.getRoutes());

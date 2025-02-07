@@ -1,3 +1,3 @@
-import YsIcon from "@/components/YsIcon.vue";
+import YsIcon from '@/components/YsIcon.vue';
 
-export default { YsIcon };
+export default {YsIcon};

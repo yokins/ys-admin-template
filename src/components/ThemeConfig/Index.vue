@@ -140,20 +140,20 @@
 </template>
 
 <script lang="jsx" setup>
-import { Settings, Checkmark } from "@vicons/carbon";
-import { useConfigStore } from "@/stores/config";
-import ConfigBlock from "./ConfigBlock.vue";
-import i18n from "@/i18n";
-import { useI18n } from "vue-i18n";
+import {Settings, Checkmark} from '@vicons/carbon';
+import {useConfigStore} from '@/stores/config';
+import ConfigBlock from './ConfigBlock.vue';
+import i18n from '@/i18n';
+import {useI18n} from 'vue-i18n';
 
-const { t } = useI18n();
+const {t} = useI18n();
 
 const animations = computed(() => [
-    { label: t("common.theme.animation.fade"), value: "fade" },
-    { label: t("common.theme.animation.slide"), value: "slide" },
-    { label: t("common.theme.animation.zoom"), value: "zoom" },
-    { label: t("common.theme.animation.bounce"), value: "bounce" },
-    { label: t("common.theme.animation.rotate"), value: "rotate" }
+    {label: t('common.theme.animation.fade'), value: 'fade'},
+    {label: t('common.theme.animation.slide'), value: 'slide'},
+    {label: t('common.theme.animation.zoom'), value: 'zoom'},
+    {label: t('common.theme.animation.bounce'), value: 'bounce'},
+    {label: t('common.theme.animation.rotate'), value: 'rotate'}
 ]);
 
 const animation = computed({

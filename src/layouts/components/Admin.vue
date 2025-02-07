@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-import { useConfigStore } from "@/stores/config";
+import {useConfigStore} from '@/stores/config';
 
 const configStore = useConfigStore();
 
@@ -69,13 +69,13 @@ const layoutStyle = computed(() => {
 const headerStyle = computed(() => {
     return {
         height: `${configStore.layout.header.height}px`,
-        position: "relative"
+        position: 'relative'
     };
 });
 
 const siderStyle = computed(() => {
     return {
-        position: "relative"
+        position: 'relative'
     };
 });
 
@@ -88,7 +88,7 @@ const layoutStyle2 = computed(() => {
 const tabStyle = computed(() => {
     return {
         height: `${configStore.layout.tabs.height}px`,
-        position: "relative"
+        position: 'relative'
     };
 });
 
@@ -107,14 +107,14 @@ const layoutContentContentStyle = computed(() => {
 const footerStyle = computed(() => {
     return {
         height: `${configStore.layout.footer.height}px`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "12px"
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '12px'
     };
 });
 
 defineOptions({
-    name: "AdminLayout"
+    name: 'AdminLayout'
 });
 </script>

@@ -1,13 +1,13 @@
-import { createI18n } from "vue-i18n";
-import zhCNMessage from "./zh-CN";
-import enUSMessage from "./en-US";
+import {createI18n} from 'vue-i18n';
+import zhCNMessage from './zh-CN';
+import enUSMessage from './en-US';
 
 const i18n = createI18n({
-    locale: "zh-CN",
-    fallbackLocale: "en-US",
+    locale: 'zh-CN',
+    fallbackLocale: 'en-US',
     messages: {
-        "zh-CN": zhCNMessage,
-        "en-US": enUSMessage
+        'zh-CN': zhCNMessage,
+        'en-US': enUSMessage
     }
 });
 
