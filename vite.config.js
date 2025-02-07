@@ -1,26 +1,26 @@
-import { fileURLToPath, URL } from "node:url";
+import {fileURLToPath, URL} from 'node:url';
 
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import vueDevTools from "vite-plugin-vue-devtools";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import legacy from "@vitejs/plugin-legacy";
-import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
-import { viteMockServe } from "vite-plugin-mock";
+import {defineConfig} from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import vueDevTools from 'vite-plugin-vue-devtools';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import legacy from '@vitejs/plugin-legacy';
+import {NaiveUiResolver} from 'unplugin-vue-components/resolvers';
+import {viteMockServe} from 'vite-plugin-mock';
 
 // https://vite.dev/config/
 export default defineConfig({
     define: {
-        "process.env": process.env
+        'process.env': process.env
     },
     plugins: [
         vue(),
         vueJsx(),
         vueDevTools(),
         viteMockServe({
-            mockPath: "mock",
+            mockPath: 'mock',
             localEnabled: true,
             prodEnabled: false,
             injectCode: true,
@@ -28,15 +28,15 @@ export default defineConfig({
         }),
         AutoImport({
             imports: [
-                "vue",
-                "vue-router",
+                'vue',
+                'vue-router',
                 {
-                    "naive-ui": ["useDialog", "useMessage", "useNotification", "useLoadingBar"]
+                    'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
                 }
             ],
             eslintrc: {
                 enabled: true,
-                filepath: "./.eslintrc-auto-import.json",
+                filepath: './.eslintrc-auto-import.json',
                 globalsPropValue: true
             }
         }),
@@ -44,8 +44,8 @@ export default defineConfig({
             resolvers: [NaiveUiResolver()]
         }),
         legacy({
-            targets: ["defaults", "ie >= 11", "chrome 52", "android >= 7"],
-            additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
+            targets: ['defaults', 'ie >= 11', 'chrome 52', 'android >= 7'],
+            additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
             renderLegacyChunks: false,
             polyfills: true,
             modernPolyfills: true
@@ -54,16 +54,16 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                api: "modern-compiler" // or 'modern'
+                api: 'modern-compiler' // or 'modern'
             }
         }
     },
     resolve: {
         alias: {
-            "@": fileURLToPath(new URL("./src", import.meta.url))
+            '@': fileURLToPath(new URL('./src', import.meta.url))
         },
         optimizeDeps: {
-            include: ["@vicons/carbon", "naive-ui"],
+            include: ['naive-ui'],
             exclude: []
         },
         build: {

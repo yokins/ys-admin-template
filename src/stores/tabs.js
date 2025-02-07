@@ -3,6 +3,7 @@ import {useRoute, useRouter} from 'vue-router';
 
 export const useTabsStore = defineStore('tabs', {
     state: () => ({
+        router: null,
         tabs: [],
         activeTab: null,
         cachedViews: []
@@ -13,6 +14,9 @@ export const useTabsStore = defineStore('tabs', {
         getCachedViews: (state) => state.cachedViews
     },
     actions: {
+        init() {
+            this.router = useRouter();
+        },
         addTab(route) {
             const {name, path, meta = {}} = route;
             const {title = '未命名页面', keepAlive = false} = meta;
@@ -45,7 +49,8 @@ export const useTabsStore = defineStore('tabs', {
                 const nextTab = this.tabs[index + 1] || this.tabs[index - 1];
                 if (nextTab) {
                     this.activeTab = nextTab.name;
-                    useRouter().push({name: nextTab.name});
+                    if (!this.router) this.init();
+                    this.router.push({name: nextTab.name});
                 }
             }
 

@@ -140,7 +140,7 @@
 </template>
 
 <script lang="jsx" setup>
-import {Settings, Checkmark} from '@vicons/carbon';
+import {Settings, Checkmark} from '@vicons/ionicons5';
 import {useConfigStore} from '@/stores/config';
 import ConfigBlock from './ConfigBlock.vue';
 import i18n from '@/i18n';

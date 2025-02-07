@@ -46,12 +46,15 @@ import {ref} from 'vue';
 import {useTabsStore} from '@/stores/tabs';
 import {useRoute, useRouter} from 'vue-router';
 import {useI18n} from 'vue-i18n';
-import {Close} from '@vicons/carbon';
+import {Close} from '@vicons/ionicons5';
 
 const {t} = useI18n();
 const route = useRoute();
 const router = useRouter();
 const tabStore = useTabsStore();
+
+// 初始化tabStore的router
+tabStore.init();
 
 // 初始化当前路由对应的标签
 if (route.name && route.meta?.layout === 'AdminLayout') {

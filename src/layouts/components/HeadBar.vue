@@ -28,7 +28,7 @@
                 @click="refreshPage"
             >
                 <YsIcon>
-                    <Rotate360></Rotate360>
+                    <Refresh></Refresh>
                 </YsIcon>
             </n-button>
             <n-button
@@ -38,8 +38,8 @@
                 @click="toggleFullscreen"
             >
                 <YsIcon>
-                    <Maximize v-if="!isFullscreen"></Maximize>
-                    <Minimize v-else></Minimize>
+                    <ExpandOutline v-if="!isFullscreen"></ExpandOutline>
+                    <ContractOutline v-else></ContractOutline>
                 </YsIcon>
             </n-button>
             <ThemeConfig></ThemeConfig>
@@ -64,7 +64,7 @@ const style = computed(() => {
 
 const globalStore = useGlobalStore();
 
-import {Rotate360, Maximize, Minimize} from '@vicons/carbon';
+import {Refresh, ExpandOutline, ContractOutline} from '@vicons/ionicons5';
 import YsIcon from '@/components/YsIcon.vue';
 
 const isFullscreen = ref(false);

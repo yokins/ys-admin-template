@@ -41,7 +41,7 @@
                         class="login-input"
                     >
                         <template #prefix>
-                            <n-icon :component="User" />
+                            <n-icon :component="PersonOutline" />
                         </template>
                     </n-input>
                 </n-form-item>
@@ -55,7 +55,7 @@
                         @keydown.enter="handleLogin"
                     >
                         <template #prefix>
-                            <n-icon :component="Password" />
+                            <n-icon :component="LockClosedOutline" />
                         </template>
                     </n-input>
                 </n-form-item>
@@ -94,7 +94,7 @@ import {ref, shallowRef} from 'vue';
 import {useRouter} from 'vue-router';
 import {useMessage} from 'naive-ui';
 import {useI18n} from 'vue-i18n';
-import {User, Password} from '@vicons/carbon';
+import {PersonOutline, LockClosedOutline} from '@vicons/ionicons5';
 import LogoPng from '@/assets/logo.png';
 import {useGlobalStore} from '@/stores/global';
 
