@@ -50,6 +50,7 @@ import {ref, computed} from 'vue';
 import {NCard, NButton, NInput, NSelect, NDataTable, NIcon, useMessage} from 'naive-ui';
 import {SearchOutline, AddOutline, CreateOutline, TrashOutline} from '@vicons/ionicons5';
 
+const router = useRouter();
 const message = useMessage();
 const searchQuery = ref('');
 const statusFilter = ref(null);
@@ -134,10 +135,12 @@ const filteredUsers = computed(() => {
 
 const handleAddUser = () => {
     message.info('点击了添加用户');
+    router.push({name: 'users_new', params: {}});
 };
 
 const handleEditUser = (user) => {
     message.info(`点击了编辑用户：${user.username}`);
+    router.push({name: 'users_edit', params: {id: user.id}});
 };
 
 const handleDeleteUser = (user) => {

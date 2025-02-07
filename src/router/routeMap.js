@@ -11,7 +11,7 @@ export default {
     users: {
         component: () => import('@/views/users/Index.vue')
     },
-    users_detail: {
-        component: () => import('@/views/users/Show.vue')
+    users_form: {
+        component: () => import('@/views/users/Form.vue')
     }
 };

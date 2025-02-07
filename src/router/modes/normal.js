@@ -28,9 +28,18 @@ export default [
         }
     },
     {
-        path: '/users/:id',
-        name: 'users_detail',
-        ...routeMap.users_detail,
+        path: '/users/new',
+        name: 'users_new',
+        ...routeMap.users_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+    {
+        path: '/users/:id/edit',
+        name: 'users_edit',
+        ...routeMap.users_form,
         meta: {
             ...defaultMeta,
             layout: 'AdminLayout'
