@@ -128,8 +128,17 @@ const handleLogin = (e) => {
             loading.value = true;
             try {
                 // 这里添加您的登录逻辑
-                const res = await window.$ys.apis.auth.login(formValue.value);
-                globalStore.setCurrentUser(res?.data);
+                // const res = await window.$ys.apis.auth.login(formValue.value);
+                const res = {
+                    token: 'mock-token-' + Date.now(),
+                    id: 1,
+                    username: 'admin',
+                    nickname: '管理员',
+                    avatar: 'https://avatars.githubusercontent.com/u/1',
+                    roles: ['admin'],
+                    permissions: ['*']
+                };
+                globalStore.setCurrentUser(res);
                 message.success(t('common.login.success'));
                 router.push('/');
             } finally {

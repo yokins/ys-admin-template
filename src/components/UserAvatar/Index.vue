@@ -66,7 +66,7 @@ const handleSelect = (key) => {
                 positiveText: t('common.yes'),
                 negativeText: t('common.no'),
                 onPositiveClick: async () => {
-                    await window.$ys.apis.auth.logout();
+                    // await window.$ys.apis.auth.logout();
                     globalStore.clearCurrentUser();
                     router.push({name: 'auth_login'});
                 }
