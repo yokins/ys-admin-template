@@ -12,7 +12,7 @@ import {viteMockServe} from 'vite-plugin-mock';
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: './',
+    base: '/ys-admin-template/',
     define: {
         'process.env': process.env
     },
