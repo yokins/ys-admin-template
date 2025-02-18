@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 import NormalMode from './modes/normal';
 import {genRoutes} from './basic';
 import guards from './guards';
@@ -6,7 +6,7 @@ import guards from './guards';
 const routes = genRoutes(NormalMode);
 
 const router = createRouter({
-    history: createWebHashHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: routes
 });
 

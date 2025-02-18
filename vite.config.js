@@ -12,6 +12,7 @@ import {viteMockServe} from 'vite-plugin-mock';
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: './',
     define: {
         'process.env': process.env
     },
