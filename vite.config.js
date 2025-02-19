@@ -12,6 +12,9 @@ import {viteMockServe} from 'vite-plugin-mock';
 
 // https://vite.dev/config/
 export default defineConfig({
+    server: {
+        port: 4455 // 设置开发端口为 3000
+    },
     define: {
         'process.env': process.env
     },
