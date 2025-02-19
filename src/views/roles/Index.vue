@@ -173,9 +173,9 @@ const handleDeleteRole = (role) => {
 
 <style scoped>
 .roles-container {
-    padding: 20px;
+    /* padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; */
 }
 
 .main-card {

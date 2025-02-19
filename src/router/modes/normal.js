@@ -56,5 +56,65 @@ export default [
             zIndex: 700000,
             title: '角色管理'
         }
+    },
+    {
+        path: '/categories',
+        name: 'categories',
+        ...routeMap.categories,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout',
+            isMenu: true,
+            zIndex: 600000,
+            title: '栏目管理'
+        }
+    },
+    {
+        path: '/categories/new',
+        name: 'categories_new',
+        ...routeMap.categories_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+    {
+        path: '/categories/:id/edit',
+        name: 'categories_edit',
+        ...routeMap.categories_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+    {
+        path: '/articles',
+        name: 'articles',
+        ...routeMap.articles,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout',
+            isMenu: true,
+            zIndex: 500000,
+            title: '文章管理'
+        }
+    },
+    {
+        path: '/articles/new',
+        name: 'articles_new',
+        ...routeMap.articles_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+    {
+        path: '/articles/:id/edit',
+        name: 'articles_edit',
+        ...routeMap.articles_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
     }
 ];
