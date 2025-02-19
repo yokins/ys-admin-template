@@ -6,7 +6,7 @@ import guards from './guards';
 const routes = genRoutes(NormalMode);
 
 const router = createRouter({
-    history: createWebHashHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: routes
 });
 

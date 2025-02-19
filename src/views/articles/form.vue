@@ -180,16 +180,23 @@ const disablePastDates = (timestamp) => {
     return timestamp < Date.now();
 };
 
+const mode = ref('default');
+
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef();
 
 // 内容 HTML
 const valueHtml = ref('<p>hello</p>');
 
+// 监听valueHtml变化，同步到formData.content
+watch(valueHtml, (newValue) => {
+    formData.value.content = newValue;
+});
+
 // 模拟 ajax 异步获取内容
 onMounted(() => {
     setTimeout(() => {
-        valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>';
+        valueHtml.value = '';
     }, 1500);
 });
 

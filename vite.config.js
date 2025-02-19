@@ -13,6 +13,7 @@ import {viteMockServe} from 'vite-plugin-mock';
 // https://vite.dev/config/
 export default defineConfig({
     server: {
+        https: false,
         port: 4455 // 设置开发端口为 3000
     },
     define: {
@@ -21,7 +22,7 @@ export default defineConfig({
     plugins: [
         vue(),
         vueJsx(),
-        vueDevTools(),
+        // vueDevTools(),
         viteMockServe({
             mockPath: 'mock',
             localEnabled: true,
