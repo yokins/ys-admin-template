@@ -2,7 +2,7 @@
  * @Author: Yokins shi
  * @Date: 2025-01-22 10:28:36
  * @LastEditors: yokins yokins.shi@icloud.com
- * @LastEditTime: 2025-02-06 15:42:10
+ * @LastEditTime: 2025-02-22 13:08:13
  * @Description: 请输入文件描述
 -->
 <template>
@@ -22,7 +22,9 @@
                                     :enter-active-class="`animate__animated animate__${configStore.animation}InUp`"
                                     :leave-active-class="`animate__animated animate__${configStore.animation}OutDown`"
                                 >
-                                    <component :is="Component" />
+                                    <div>
+                                        <component :is="Component" />
+                                    </div>
                                 </transition>
                             </router-view>
                         </component>

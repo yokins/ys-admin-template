@@ -116,5 +116,48 @@ export default [
             ...defaultMeta,
             layout: 'AdminLayout'
         }
+    },
+    {
+        path: '/materials',
+        name: 'materials',
+        ...routeMap.materials,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout',
+            isMenu: true,
+            zIndex: 500000,
+            title: '素材管理'
+        }
+    },
+    {
+        path: '/materials/new',
+        name: 'materials_new',
+        ...routeMap.materials_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+    {
+        path: '/materials/:id/edit',
+        name: 'materials_edit',
+        ...routeMap.materials_form,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout'
+        }
+    },
+
+    {
+        path: '/records',
+        name: 'records',
+        ...routeMap.records,
+        meta: {
+            ...defaultMeta,
+            layout: 'AdminLayout',
+            isMenu: true,
+            zIndex: 500000,
+            title: '发布记录'
+        }
     }
 ];

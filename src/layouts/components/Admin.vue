@@ -25,12 +25,12 @@
                 position="absolute"
                 :style="layoutStyle2"
             >
-                <n-layout-header
+                <!-- <n-layout-header
                     :style="tabStyle"
                     bordered
                 >
                     <slot name="tabs"></slot>
-                </n-layout-header>
+                </n-layout-header> -->
 
                 <n-layout-content
                     embedded
@@ -94,7 +94,7 @@ const tabStyle = computed(() => {
 
 const layoutContentStyle = computed(() => {
     return {
-        top: `${configStore.layout.tabs.height}px`
+        // top: `${configStore.layout.tabs.height}px`
     };
 });
 

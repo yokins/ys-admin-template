@@ -25,5 +25,14 @@ export default {
     },
     articles_form: {
         component: () => import('@/views/articles/Form.vue')
+    },
+    materials: {
+        component: () => import('@/views/materials/Index.vue')
+    },
+    materials_form: {
+        component: () => import('@/views/materials/Form.vue')
+    },
+    records: {
+        component: () => import('@/views/records/Index.vue')
     }
 };
