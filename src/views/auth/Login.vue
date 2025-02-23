@@ -84,6 +84,31 @@
                 >
                     {{ loading ? t('common.login.loading') : t('common.login.button') }}
                 </n-button>
+
+                <n-form-item :show-feedback="false">
+                    <n-flex
+                        align="center"
+                        justify="center"
+                        style="width: 100%; margin-top: 24px"
+                        :size="30"
+                    >
+                        <n-icon :size="30">
+                            <WechatFilled></WechatFilled>
+                        </n-icon>
+
+                        <n-icon :size="30">
+                            <QqOutlined></QqOutlined>
+                        </n-icon>
+
+                        <n-icon :size="30">
+                            <AlipayOutlined></AlipayOutlined>
+                        </n-icon>
+
+                        <n-icon :size="30">
+                            <AliwangwangOutlined></AliwangwangOutlined>
+                        </n-icon>
+                    </n-flex>
+                </n-form-item>
             </n-form>
         </n-card>
     </div>
@@ -97,6 +122,7 @@ import {useI18n} from 'vue-i18n';
 import {PersonOutline, LockClosedOutline} from '@vicons/ionicons5';
 import LogoPng from '@/assets/logo.png';
 import {useGlobalStore} from '@/stores/global';
+import {WechatFilled, QqOutlined, AlipayOutlined, AliwangwangOutlined} from '@vicons/antd';
 
 const {t} = useI18n();
 
@@ -245,6 +271,7 @@ const handleLogin = (e) => {
     z-index: 1;
     will-change: transform;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 300px;
 }
 
 .login-card:hover {

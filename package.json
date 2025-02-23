@@ -15,6 +15,7 @@
         "format": "prettier --write src/"
     },
     "dependencies": {
+        "@vicons/antd": "^0.13.0",
         "@vicons/ionicons5": "^0.13.0",
         "@wangeditor/editor": "^5.1.23",
         "@wangeditor/editor-for-vue": "^5.1.12",

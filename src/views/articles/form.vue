@@ -73,7 +73,7 @@
                 />-->
             </n-form-item>
 
-            <n-form-item
+            <!-- <n-form-item
                 label="发布时间"
                 path="publishTime"
             >
@@ -97,14 +97,14 @@
                         <n-radio value="unpublished">下架</n-radio>
                     </n-space>
                 </n-radio-group>
-            </n-form-item>
+            </n-form-item> -->
 
             <n-space justify="center">
                 <n-button
                     type="primary"
                     @click="handleSubmit"
                 >
-                    提交
+                    保存草稿
                 </n-button>
                 <n-button
                     type="info"

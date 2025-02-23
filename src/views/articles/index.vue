@@ -141,7 +141,16 @@ const columns = [
                             type: row.status === 'published' ? 'warning' : 'success',
                             onClick: () => handleToggleStatus(row)
                         },
-                        {default: () => row.status === 'published' ? '下架' : '上架'}
+                        {default: () => (row.status === 'published' ? '下架' : '上架')}
+                    ),
+                    h(
+                        NButton,
+                        {
+                            size: 'small',
+                            type: 'info',
+                            onClick: () => handlePreview(row)
+                        },
+                        {default: () => '定时发布'}
                     ),
                     h(
                         NButton,
