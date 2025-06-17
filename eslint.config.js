@@ -5,8 +5,8 @@ import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
-import pluginPrettier from "eslint-plugin-prettier";
-import autoImportConfig from "./.eslintrc-auto-import.json";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import autoImportConfig from "./.eslintrc-auto-import.js";
 
 export default defineConfig([
     {
@@ -19,7 +19,7 @@ export default defineConfig([
         languageOptions: { globals: { ...globals.browser, ...autoImportConfig.globals } }
     },
     pluginVue.configs["flat/essential"],
-    pluginPrettier.configs.recommended,
+    eslintPluginPrettierRecommended,
     {
         files: ["**/*.json"],
         plugins: { json },

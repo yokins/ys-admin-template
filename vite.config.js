@@ -7,7 +7,10 @@ import AutoImport from "unplugin-auto-import/vite";
 export default defineConfig({
     plugins: [
         vue(),
-        eslintPlugin(),
+        eslintPlugin({
+            fix: true,
+            exclude: [/virtual:/, /node_modules/]
+        }),
         AutoImport({
             imports: [
                 "vue",
@@ -19,7 +22,7 @@ export default defineConfig({
             ],
             eslintrc: {
                 enabled: true,
-                filepath: "./.eslintrc-auto-import.json",
+                filepath: "./.eslintrc-auto-import.js",
                 globalsPropValue: true
             }
         })
