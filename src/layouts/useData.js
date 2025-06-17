@@ -24,6 +24,22 @@ const useAdminStyles = () => {
         };
     });
 
+    const footerStyle = computed(() => {
+        return {
+            height: `${configStore.layout.footer.height}px`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px"
+        };
+    });
+
+    const layoutStyle = computed(() => {
+        return {
+            top: `${configStore.layout.header.height}px`,
+            bottom: `${configStore.layout.footer.height}px`
+        };
+    });
     const containerStyle = computed(() => {
         return {
             left: `${configStore.layout.sider.width}px`
@@ -34,15 +50,23 @@ const useAdminStyles = () => {
             top: `${configStore.layout.tabs.height}px`
         };
     });
+    const containerContentContentStyle = computed(() => {
+        return {
+            padding: `${configStore.layout.padding}px`
+        };
+    });
 
     return {
         headerStyle,
         siderStyle,
         tabsStyle,
+        footerStyle,
 
+        layoutStyle,
         containerStyle,
-        containerContentStyle
+        containerContentStyle,
+        containerContentContentStyle
     };
 };
 
-export default useAdminStyles;
+export { useAdminStyles };

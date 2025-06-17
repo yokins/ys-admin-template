@@ -23,10 +23,10 @@
 
             <n-layout
                 position="absolute"
-                :style="layoutStyle2"
+                :style="containerStyle"
             >
                 <n-layout-header
-                    :style="tabStyle"
+                    :style="tabsStyle"
                     bordered
                 >
                     <slot name="tabs"></slot>
@@ -35,8 +35,8 @@
                 <n-layout-content
                     embedded
                     position="absolute"
-                    :style="layoutContentStyle"
-                    :content-style="layoutContentContentStyle"
+                    :style="containerContentStyle"
+                    :content-style="containerContentContentStyle"
                     :native-scrollbar="false"
                 >
                     <slot></slot>
@@ -56,63 +56,21 @@
 
 <script setup>
 import { useConfigStore } from "@/stores/config";
+import { useAdminStyles } from "../useData";
 
 const configStore = useConfigStore();
 
-const layoutStyle = computed(() => {
-    return {
-        top: `${configStore.layout.header.height}px`,
-        bottom: `${configStore.layout.footer.height}px`
-    };
-});
+const {
+    headerStyle,
+    siderStyle,
+    tabsStyle,
+    footerStyle,
 
-const headerStyle = computed(() => {
-    return {
-        height: `${configStore.layout.header.height}px`,
-        position: "relative"
-    };
-});
-
-const siderStyle = computed(() => {
-    return {
-        position: "relative"
-    };
-});
-
-const layoutStyle2 = computed(() => {
-    return {
-        left: `${configStore.layout.sider.width}px`
-    };
-});
-
-const tabStyle = computed(() => {
-    return {
-        height: `${configStore.layout.tabs.height}px`,
-        position: "relative"
-    };
-});
-
-const layoutContentStyle = computed(() => {
-    return {
-        top: `${configStore.layout.tabs.height}px`
-    };
-});
-
-const layoutContentContentStyle = computed(() => {
-    return {
-        padding: `${configStore.layout.padding}px`
-    };
-});
-
-const footerStyle = computed(() => {
-    return {
-        height: `${configStore.layout.footer.height}px`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "12px"
-    };
-});
+    layoutStyle,
+    containerStyle,
+    containerContentStyle,
+    containerContentContentStyle
+} = useAdminStyles();
 
 defineOptions({
     name: "AdminLayout"
