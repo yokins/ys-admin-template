@@ -4,9 +4,7 @@ import { defineStore } from "pinia";
 export const useConfigStore = defineStore("config", {
     state: () => {
         return {
-            animation: "fade",
             lang: "zh-CN",
-            goldenRatio: 1.618,
             colors: [
                 "#65647C",
                 "#1890ff",
@@ -19,11 +17,6 @@ export const useConfigStore = defineStore("config", {
                 "#987D9A",
                 "#8ACDD7"
             ],
-            theme: {
-                colors: {
-                    primary: "#65647C"
-                }
-            },
             layout: {
                 header: {
                     height: 48
@@ -38,9 +31,16 @@ export const useConfigStore = defineStore("config", {
                     height: 30,
                     text: "© 2025 YokinsAdmin Template"
                 },
-                padding: 16,
-                margin: 16,
-                iconSize: 16
+                sizes: {
+                    padding: 8,
+                    margin: 8,
+                    iconSize: 16
+                }
+            },
+            themeOverride: {
+                common: {
+                    primaryColor: "#2d8cf0"
+                }
             }
         };
     },

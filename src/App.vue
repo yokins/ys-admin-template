@@ -1,8 +1,9 @@
 <template>
     <n-config-provider
+        size="small"
         :locale="naiveI18n.lang"
         :date-locale="naiveI18n.dateLang"
-        :theme-overrides="themeOverrides"
+        :theme-overrides="configStore.themeOverride"
     >
         <component :is="currentLayout">
             <router-view></router-view>
@@ -31,12 +32,6 @@ const naiveI18n = computed(() => {
         return { lang: enUS, dateLang: dateEnUS };
     }
 });
-
-const themeOverrides = {
-    common: {
-        primaryColor: "#2d8cf0"
-    }
-};
 
 const currentLayout = computed(() => {
     const layoutName = route?.meta?.layout;
