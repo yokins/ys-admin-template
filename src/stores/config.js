@@ -4,7 +4,9 @@ import { defineStore } from "pinia";
 export const useConfigStore = defineStore("config", {
     state: () => {
         return {
+            // 语言
             lang: "zh-CN",
+            // 配色
             colors: [
                 "#65647C",
                 "#1890ff",
@@ -17,6 +19,7 @@ export const useConfigStore = defineStore("config", {
                 "#987D9A",
                 "#8ACDD7"
             ],
+            // 布局
             layout: {
                 header: {
                     height: 48
@@ -37,6 +40,7 @@ export const useConfigStore = defineStore("config", {
                     iconSize: 16
                 }
             },
+            // naive ui的主题覆盖
             themeOverride: {
                 common: {
                     primaryColor: "#2d8cf0"
@@ -46,12 +50,9 @@ export const useConfigStore = defineStore("config", {
     },
     getters: {},
     actions: {
-        setLang(lang = "zh_CN") {
+        setLang(lang = "zh-CN") {
             this.lang = lang;
             i18n.global.locale = lang;
-        },
-        setAnimation(animation = "fade") {
-            this.animation = animation;
         }
     },
     persist: true
