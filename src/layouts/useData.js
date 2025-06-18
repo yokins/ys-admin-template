@@ -52,7 +52,10 @@ const useAdminStyles = () => {
     });
     const containerContentContentStyle = computed(() => {
         return {
-            padding: `${configStore.layout.sizes.padding}px`
+            padding: `${configStore.layout.sizes.padding}px`,
+            boxSizing: "border-box",
+            position: "relative",
+            height: `calc(100vh - ${configStore.layout.header.height}px - 1px - ${configStore.layout.tabs.height}px - 1px - ${configStore.layout.footer.height}px - 1px)`
         };
     });
 
