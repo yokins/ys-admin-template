@@ -54,7 +54,7 @@
     </n-layout>
 </template>
 
-<script setup>
+<script lang="jsx" setup>
 import { useConfigStore } from "@/stores/config";
 import { useAdminStyles } from "../useData";
 
