@@ -4,7 +4,9 @@
 
         <template #sider> </template>
 
-        <template #tabs> </template>
+        <template #tabs>
+            <AdminTabs></AdminTabs>
+        </template>
 
         <slot></slot>
 
@@ -19,6 +21,7 @@
 <script lang="jsx" setup>
 import { useConfigStore } from "@/stores/config";
 import AdminTemplate from "@/layouts/components/AdminTemplate.vue";
+import AdminTabs from "@/layouts/components/AdminTabs.vue";
 
 const configStore = useConfigStore();
 </script>
