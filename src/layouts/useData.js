@@ -20,7 +20,8 @@ const useAdminStyles = () => {
     const tabsStyle = computed(() => {
         return {
             height: `${configStore.layout.tabs.height}px`,
-            position: "relative"
+            position: "relative",
+            padding: `0 ${configStore.layout.sizes.padding}px`
         };
     });
 

@@ -7,16 +7,32 @@ import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import autoImportConfig from "./.eslintrc-auto-import.js";
+import * as vueParser from "vue-eslint-parser";
+import babelParser from "@babel/eslint-parser";
 
 export default defineConfig([
     {
-        files: ["**/*.{js,mjs,cjs,vue}"],
+        files: ["**/*.{js,mjs,cjs,jsx,vue}"],
         plugins: { js },
         extends: ["js/recommended"]
     },
     {
-        files: ["**/*.{js,mjs,cjs,vue}"],
-        languageOptions: { globals: { ...globals.browser, ...autoImportConfig.globals } }
+        files: ["**/*.{js,mjs,cjs,jsx,vue}"],
+        languageOptions: {
+            globals: { ...globals.browser, ...autoImportConfig.globals },
+            parser: vueParser,
+            parserOptions: {
+                parser: babelParser,
+                requireConfigFile: false,
+                babelOptions: {
+                    presets: ["@babel/preset-env"],
+                    plugins: ["@babel/plugin-syntax-jsx"]
+                },
+                ecmaVersion: 2020,
+                sourceType: "module",
+                ecmaFeatures: { jsx: true }
+            }
+        }
     },
     pluginVue.configs["flat/essential"],
     eslintPluginPrettierRecommended,
