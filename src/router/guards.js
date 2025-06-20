@@ -1,7 +1,7 @@
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
-// import { useGlobalStore } from "@/stores/global";
-// import { useTabsStore } from "@/stores/tabs";
+import { useGlobalStore } from "@/stores/global";
+import { useTabsStore } from "@/stores/tabs";
 
 NProgress.configure({ showSpinner: false });
 
@@ -14,6 +14,11 @@ export default {
          */
         nProgressStart() {
             NProgress.start();
+        },
+        globalLoadingStart(to, form, next) {
+            const globalStore = useGlobalStore();
+            globalStore.setGlobalLoading(true);
+            next();
         }
         /**
          * @description: 检查是否需要登录, 登录页固定，首页再议
@@ -44,16 +49,22 @@ export default {
          */
         nProgressEnd() {
             NProgress.done();
-        }
+        },
+        globalLoadingEnd() {
+            setTimeout(() => {
+                const globalStore = useGlobalStore();
+                globalStore.setGlobalLoading(false);
+            }, 1000);
+        },
         /**
          * @description: 处理标签页的自动添加
          * @return {*}
          */
-        // handleTabs(to) {
-        //     if (to.name && to.meta?.layout === "AdminLayout") {
-        //         const tabStore = useTabsStore();
-        //         tabStore.addTab(to);
-        //     }
-        // }
+        handleTabs(to) {
+            if (to.name && to.meta?.layout === "AdminLayout") {
+                const tabStore = useTabsStore();
+                tabStore.addTab(to);
+            }
+        }
     }
 };

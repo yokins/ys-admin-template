@@ -7,17 +7,26 @@ const router = createRouter({
         {
             path: "/",
             name: "HomeIndex",
-            component: () => import("@/views/home/HomeIndex.vue")
+            component: () => import("@/views/home/HomeIndex.vue"),
+            meta: {
+                layout: "AdminLayout"
+            }
         },
         {
             path: "/users",
             name: "UsersIndex",
-            component: () => import("@/views/users/UsersIndex.vue")
+            component: () => import("@/views/users/UsersIndex.vue"),
+            meta: {
+                layout: "AdminLayout"
+            }
         },
         {
             path: "/departments",
             name: "DepartmentsIndex",
-            component: () => import("@/views/departments/DepartmentsIndex.vue")
+            component: () => import("@/views/departments/DepartmentsIndex.vue"),
+            meta: {
+                layout: "AdminLayout"
+            }
         }
     ]
 });

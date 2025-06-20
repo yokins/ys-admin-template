@@ -6,7 +6,9 @@
         :theme-overrides="configStore.themeOverride"
     >
         <component :is="currentLayout">
-            <router-view></router-view>
+            <n-spin :show="globalStore.globalLoading">
+                <router-view></router-view>
+            </n-spin>
         </component>
     </n-config-provider>
 </template>
@@ -17,6 +19,7 @@ import { useConfigStore } from "@/stores/config";
 import { dateZhCN, zhCN, enUS, dateEnUS } from "naive-ui";
 import layouts from "@/layouts";
 import "animate.css";
+import { useGlobalStore } from "@/stores/global";
 
 const route = useRoute();
 
@@ -37,6 +40,8 @@ const currentLayout = computed(() => {
     const layoutName = route?.meta?.layout;
     return layouts[layoutName] || layouts.default;
 });
+
+const globalStore = useGlobalStore();
 </script>
 
 <style lang="scss" scoped>

@@ -2,6 +2,8 @@
     <n-tabs
         type="card"
         closable
+        :value="tabsStore.currentTab"
+        @close="(name) => tabsStore.deleteTab({ name })"
     >
         <template #prefix>
             <n-button text>
@@ -11,11 +13,11 @@
             </n-button>
         </template>
         <template
-            v-for="(item, index) in 20"
+            v-for="(item, index) in tabsStore.tabs || []"
             :key="index"
         >
             <n-tab
-                :name="`标签${index}`"
+                :name="item.name"
                 @contextmenu.prevent="handleContextMenu($event, tab)"
             ></n-tab>
         </template>
@@ -53,10 +55,16 @@
 </template>
 
 <script lang="jsx" setup>
+import { useTabsStore } from "@/stores/tabs";
 import { GoStart, GoEnd, ApplicationMenu, Clear } from "@icon-park/vue-next";
+
+const tabsStore = useTabsStore();
+
+tabsStore.init();
+
 const options = [
     {
-        label: "清除全部",
+        label: "关闭全部",
         key: "delete_all",
         icon: () => {
             return (
@@ -67,7 +75,11 @@ const options = [
         }
     }
 ];
-const handleSelect = () => {};
+const handleSelect = (key) => {
+    if (key === "delete_all") {
+        tabsStore.deleteAllTabs();
+    }
+};
 
 // 右键菜单相关
 const showDropdown = ref(false);
